@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,8 +5,10 @@ public class LogController : MonoBehaviour
 {
     [SerializeField] private Animation animationCom;
     [SerializeField] private GameObject buttonImg;
+    [SerializeField] private Text logTextBox;
 
     private bool _panelOpen;
+    private int _logID = 1;
 
     private void OpenPanel()
     {
@@ -32,5 +32,10 @@ public class LogController : MonoBehaviour
         else OpenPanel();
         
         _panelOpen = !_panelOpen;
+    }
+
+    public void SetLogText(string logTxt)
+    {
+        logTextBox.text += "Log [" + _logID++ + "]: " + logTxt + "\n";
     }
 }

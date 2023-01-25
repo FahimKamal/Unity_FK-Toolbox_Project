@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LogDisplayManager : MonoBehaviour
 {
@@ -18,4 +19,6 @@ public class LogDisplayManager : MonoBehaviour
     }
 
     #endregion
+
+    
 }

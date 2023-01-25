@@ -1152,7 +1152,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 1
-  m_Spacing: 10
+  m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -1173,7 +1173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
-  m_VerticalFit: 1
+  m_VerticalFit: 2
 --- !u!1 &988673169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1892,7 +1892,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2058239545}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.80742836
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2551,6 +2551,8 @@ GameObject:
   - component: {fileID: 2066006520}
   - component: {fileID: 2066006519}
   - component: {fileID: 2066006518}
+  - component: {fileID: 2066006522}
+  - component: {fileID: 2066006521}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -2632,60 +2634,7 @@ MonoBehaviour:
     Log 3: Demo log
     text 3
 
-    Log 3: Demo log text 3
-
-    Log 3: Demo log text 3
-
-    Log 3: Demo
-    log text 3
-
-    Log 3: Demo log text 3
-
-    Log 3: Demo log text 3
-
-    Log 3:
-    Demo log text 3
-
-    Log 3: Demo log text 3
-
-    Log 3: Demo log text 3
-
-    Log
-    3: Demo log text 3
-
-    Log 3: Demo log text 3
-
-    Log 3: Demo log text 3
-
-    Log
-    3: Demo log text 3
-
-    Log 3: Demo log text 3
-
-    Log 3: Demo log text 3
-
-    Log
-    3: Demo log text 3
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-'
+    Log 3: Demo log '
 --- !u!222 &2066006520
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2694,6 +2643,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066006516}
   m_CullTransparentMesh: 1
+--- !u!114 &2066006521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066006516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1080, y: 2400}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 1
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &2066006522
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066006516}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &2145399335
 GameObject:
   m_ObjectHideFlags: 0

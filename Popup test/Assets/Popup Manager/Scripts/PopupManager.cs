@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PopupManager : MonoBehaviour
@@ -36,10 +33,17 @@ public class PopupManager : MonoBehaviour
     [Tooltip("Un-tick if you don't want to show popup on screen")]
     [SerializeField] private bool isPopupActive = true;
 
-    public void ShowPopup(string title, string description)
+    /// <summary>
+    /// Show popup on screen and print log.
+    /// </summary>
+    /// <param name="description">Description of your message.</param>
+    /// <param name="title">Title of Popup.</param>
+    /// <param name="onlyLog">Set true if you only want to print log.</param>
+    public void ShowPopup(string description,string title = "Popup", bool onlyLog = false)
     {
+        Debug.Log(description);
+        if (onlyLog) return;
         if (!isPopupActive) return;
-        
         var popup = Instantiate(popupPrefab, transform);
         popup.GetComponent<SetPopup>().SetPopupData(title, description, popupDuration);
     }

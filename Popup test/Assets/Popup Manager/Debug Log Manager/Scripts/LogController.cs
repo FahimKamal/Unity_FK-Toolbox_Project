@@ -26,6 +26,9 @@ public class LogController : MonoBehaviour
         buttonImg.transform.localScale = scale;
     }
 
+    /// <summary>
+    /// Toggle the log panel open and close.
+    /// </summary>
     public void LogPanelToggle()
     {
         if (_panelOpen) ClosePanel();
@@ -34,6 +37,10 @@ public class LogController : MonoBehaviour
         _panelOpen = !_panelOpen;
     }
 
+    /// <summary>
+    /// Set the log text in the log display panel. 
+    /// </summary>
+    /// <param name="logTxt">Text to display.</param>
     public void SetLogText(string logTxt)
     {
         logTextBox.text += "Log [" + _logID++ + "]: " + logTxt + "\n";

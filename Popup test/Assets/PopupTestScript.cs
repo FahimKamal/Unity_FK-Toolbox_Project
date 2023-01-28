@@ -5,7 +5,7 @@ public class PopupTestScript : MonoBehaviour
 {
     public void HelloButton()
     {
-        PopupManager.Instance.ShowPopup( "Button pressed from hello button", "Notification", true);
+        PopupManager.Instance.ShowPopup("Button pressed from hello button", "Notification", true);
     }
     
     public void HiButton()

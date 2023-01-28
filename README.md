@@ -14,7 +14,11 @@ See below example to know how to use this. Also you will find a sample scene whi
   ![Initialization](https://imgur.com/TZI7T3c.gif "Initialization")
 
 ```c#
-    PopupManager.Instance.ShowPopup(description:"Button pressed from hello button", title:"Notification", onlyLog:true);
+    PopupManager.Instance.ShowPopup(
+      description:"Button pressed from hello button", 
+      title:"Notification", 
+      onlyLog:true
+    );
 ```
 ```c#
     PopupManager.Instance.ShowPopup("Test log text");

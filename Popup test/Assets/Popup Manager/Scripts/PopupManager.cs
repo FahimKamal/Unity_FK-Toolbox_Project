@@ -1,3 +1,6 @@
+using System;
+using Custom_Attribute;
+using Events_Scripts;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -5,26 +8,41 @@ using UnityEditor;
 
 public class PopupManager : MonoBehaviour
 {
-    #region singleton
+    #region Singleton
 
-    public static PopupManager Instance;
+    private static PopupManager _instance;
     private void Awake()
     {
-        if (Instance != null)
+        if (_instance != null)
         {
             Destroy(gameObject);
             return;
         }
-        Instance = this;
+        _instance = this;
         DontDestroyOnLoad(gameObject);
-        
-        if (FindObjectOfType<CallBackManager>() != null) return;
-        var callBackManager = new GameObject("CallBackManager");
-        callBackManager.AddComponent<CallBackManager>();
     }
 
     #endregion
+    
+    #region Initialization
 
+    private void OnEnable()
+    {
+        messengerEvent.onEventRaised.AddListener(Call);
+    }
+
+    private void OnDisable()
+    {
+        messengerEvent.onEventRaised.RemoveListener(Call);
+    }
+
+    private void Call(Messenger message)
+    {
+        ShowPopup(message.description, message.title, message.onlyLog);
+    }
+
+    #endregion
+    
     #region Seter and Geters
 
     public bool UsePopup
@@ -39,27 +57,44 @@ public class PopupManager : MonoBehaviour
     }
 
     #endregion
-    
+
+    #region Variables
+
+    [Tooltip("This event receives messages from different objects and delivers them here. Make sure to set it always.")]
+    [SerializeField] 
+    [RequireReference("This event receives messages from different objects and delivers them here. Make sure to set it with proper reference always.")]
+    private MessengerEvent messengerEvent;
     [Tooltip("Un-tick if you don't want to show popup on screen")]
     [SerializeField] 
     private bool usePopup = true;
     [Tooltip("Set time in seconds")]
     [SerializeField, ShowIf(ActionOnConditionFail.JUST_DISABLE, ConditionOperator.AND, nameof(usePopup))] 
     private float popupDuration = 3f;
-    [SerializeField, ShowIf(ActionOnConditionFail.JUST_DISABLE, ConditionOperator.AND, nameof(usePopup))] 
+    [SerializeField, ShowIf(ActionOnConditionFail.JUST_DISABLE, ConditionOperator.AND, nameof(usePopup))]
+    [RequireReference("Set the popup prefab ref here. Can't be left empty.")]
     private GameObject popupPrefab;
     
     [Space (10)]
     [Tooltip("Un-tick if you don't want to show log panel.")]
     [SerializeField] 
-    private bool useLog = true;
+    private bool useLog = false;
     
     [SerializeField, ShowIf(ActionOnConditionFail.JUST_DISABLE, ConditionOperator.AND, nameof(useLog))] 
+    // [RequireReference("Get the child object of save name and set it here.")]
+    [RequireReference]
     private GameObject logDisplayManger;
+
+    #endregion
+    
+    
 
     public void ToggleLogPanel()
     {
-        logDisplayManger.SetActive(useLog);
+        if (logDisplayManger != null)
+        {
+            logDisplayManger.SetActive(useLog);
+        }
+        
     }
     
     /// <summary>
@@ -68,10 +103,10 @@ public class PopupManager : MonoBehaviour
     /// <param name="description">Description of your message.</param>
     /// <param name="title">Title of Popup.</param>
     /// <param name="onlyLog">Set true if you only want to print log.</param>
-    public void ShowPopup(string description,string title = "Popup", bool onlyLog = false)
+    private void ShowPopup(string description,string title = "Popup", bool onlyLog = false)
     {
         Debug.Log(description);
-        if (useLog) LogDisplayManager.Instance.Log(description);
+        if (useLog) logDisplayManger.GetComponent<LogDisplayManager>().Log(description);
         
         if (onlyLog) return;
         
@@ -90,6 +125,7 @@ public class PopupManager : MonoBehaviour
 public class MyScriptEditor : Editor
 {
     
+    private SerializedProperty _messageReceiverEvent;
     private SerializedProperty _usePopup;
     private SerializedProperty _popupDuration;
     private SerializedProperty _popupPrefab;
@@ -98,6 +134,7 @@ public class MyScriptEditor : Editor
 
     private void OnEnable()
     {
+        _messageReceiverEvent = serializedObject.FindProperty("messengerEvent");
         _usePopup = serializedObject.FindProperty("usePopup");
         _popupDuration = serializedObject.FindProperty("popupDuration");
         _popupPrefab = serializedObject.FindProperty("popupPrefab");
@@ -107,6 +144,9 @@ public class MyScriptEditor : Editor
 
     public override void OnInspectorGUI()
     {
+        // DrawDefaultInspector();
+        
+        
         serializedObject.Update();
         var myScript = (PopupManager)target;
         if (myScript.UseLog)
@@ -114,6 +154,14 @@ public class MyScriptEditor : Editor
         else
             myScript.ToggleLogPanel();
 
+        EditorGUILayout.LabelField("Messenger Event", EditorStyles.boldLabel);
+        EditorGUILayout.Separator();
+        EditorGUI.indentLevel++;
+        EditorGUILayout.PropertyField(_messageReceiverEvent, new GUIContent("Message Receiver Event"));
+
+        EditorGUI.indentLevel--;
+        EditorGUILayout.Separator();
+        
         EditorGUILayout.LabelField("PopUp Window Options", EditorStyles.boldLabel);
         EditorGUILayout.Separator();
         EditorGUI.indentLevel++;

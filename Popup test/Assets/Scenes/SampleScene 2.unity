@@ -489,6 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 306dced5d73f11141932c9f13b3d0470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messengerEvent: {fileID: 11400000, guid: 0d6ce3fd041bd204a9ca3d5bd488adb3, type: 2}
 --- !u!1 &788855105
 GameObject:
   m_ObjectHideFlags: 0

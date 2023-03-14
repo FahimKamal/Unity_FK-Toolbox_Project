@@ -21,6 +21,9 @@ public enum ActionOnConditionFail
     JUST_DISABLE,
 }
 
+/// <summary>
+/// Only show the selected property if given condition is meet.
+/// </summary>
 public class ShowIfAttribute : PropertyAttribute
 {
     public ActionOnConditionFail Action {get;private set;}

@@ -354,6 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 306dced5d73f11141932c9f13b3d0470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messengerEvent: {fileID: 11400000, guid: 0d6ce3fd041bd204a9ca3d5bd488adb3, type: 2}
 --- !u!1 &788855105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,10 +1505,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 976.49097
       objectReference: {fileID: 0}
-    - target: {fileID: 425355046, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
-      propertyPath: m_Text
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 496932089, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1520,30 +1517,34 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1208991698, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1420906900, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1420906900, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000022888184
+      value: -0.00010681152
       objectReference: {fileID: 0}
     - target: {fileID: 6032176785920239205, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
       propertyPath: m_Name
       value: Popup Manager
       objectReference: {fileID: 0}
     - target: {fileID: 6032176785920239206, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
-      propertyPath: useLog
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6032176785920239206, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
       propertyPath: usePopup
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6032176785920239206, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
+      propertyPath: popupPrefab
+      value: 
+      objectReference: {fileID: 518775712009529825, guid: bfa61a3f46b18624bbff25cec1570476, type: 3}
+    - target: {fileID: 6032176785920239206, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
+      propertyPath: messengerEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d6ce3fd041bd204a9ca3d5bd488adb3, type: 2}
+    - target: {fileID: 6032176785920239206, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
+      propertyPath: logDisplayManger
+      value: 
+      objectReference: {fileID: 1652467410}
     - target: {fileID: 6032176785920239207, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1590,6 +1591,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
+--- !u!1 &1652467410 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1208991698, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
+  m_PrefabInstance: {fileID: 1652467409}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2103059076
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,5 @@
 using System;
 using Custom_Attribute;
-using Events_Scripts;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;

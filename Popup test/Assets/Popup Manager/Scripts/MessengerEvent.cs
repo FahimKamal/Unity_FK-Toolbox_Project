@@ -1,5 +1,5 @@
 using System;
-using Events_Scripts;
+using Event_System_SO;
 using UnityEngine;
 [CreateAssetMenu(menuName = "Events/Messenger Event")]
 public class MessengerEvent : BaseEvent<Messenger>

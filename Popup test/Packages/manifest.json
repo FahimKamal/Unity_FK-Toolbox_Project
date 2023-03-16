@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "com.madsbangh.easybuttons": "https://github.com/madsbangh/EasyButtons.git#upm",
+    "com.novalabs.fk-tools": "https://github.com/FahimKamal/Unity_Event_System_Using_Scriptable_Objects.git#package",
     "com.unity.collab-proxy": "1.17.7",
     "com.unity.feature.2d": "1.0.0",
     "com.unity.ide.rider": "3.0.18",

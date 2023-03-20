@@ -6,7 +6,7 @@ public class SetPopup : MonoBehaviour
 {
     [SerializeField] private TMP_Text title;
     [SerializeField] private TMP_Text description;
-    [SerializeField] private Animation animationCom;
+    [SerializeField] private Animator animationCom;
     
     [SerializeField] private float popupDuration = 3f;
 

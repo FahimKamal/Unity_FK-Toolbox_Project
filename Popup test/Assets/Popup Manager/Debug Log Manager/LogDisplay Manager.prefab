@@ -351,7 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12d485fb515bb3846afe3042860ee3ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationCom: {fileID: 6137447287527584787}
+  animationCom: {fileID: 556567383388643275}
   buttonImg: {fileID: 6137447286251540904}
   logTextBox: {fileID: 6137447287751923714}
 --- !u!1 &6137447286968844534
@@ -590,8 +590,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6137447287777503183}
   m_HandleRect: {fileID: 6137447287777503180}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 0.33834586
+  m_Value: 0.00000031118617
+  m_Size: 0.34401044
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -607,7 +607,7 @@ GameObject:
   - component: {fileID: 6137447287527584790}
   - component: {fileID: 6137447287527584784}
   - component: {fileID: 6137447287527584785}
-  - component: {fileID: 6137447287527584787}
+  - component: {fileID: 556567383388643275}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -675,23 +675,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!111 &6137447287527584787
-Animation:
+--- !u!95 &556567383388643275
+Animator:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6137447287527584791}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 89980ae1b51c39c4a8a3d935e6ab49ce, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 89980ae1b51c39c4a8a3d935e6ab49ce, type: 2}
-  - {fileID: 7400000, guid: 8506565a18b66d54592404935508ef1b, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 708c8f74985a4f14597e0028c27e3686, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6137447287697681362
 GameObject:
   m_ObjectHideFlags: 0

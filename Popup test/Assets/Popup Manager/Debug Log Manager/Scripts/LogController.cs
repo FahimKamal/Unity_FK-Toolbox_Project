@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class LogController : MonoBehaviour
 {
-    [SerializeField] private Animation animationCom;
+    [SerializeField] private Animator animationCom;
     [SerializeField] private GameObject buttonImg;
     [SerializeField] private Text logTextBox;
 

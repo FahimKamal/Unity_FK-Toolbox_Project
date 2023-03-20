@@ -1,29 +1,15 @@
-using System;
 using Custom_Attribute;
+using Debug_Log_Manager;
 using UnityEngine;
-using UnityEngine.Serialization;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
-public class PopupManager : MonoBehaviour
+namespace Popup_Log_System
 {
-    #region Singleton
-
-    private static PopupManager _instance;
-    private void Awake()
-    {
-        if (_instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        _instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-
-    #endregion
-    
+    public class PopupManager : MonoBehaviour
+{
     #region Initialization
 
     private void OnEnable()
@@ -100,8 +86,6 @@ public class PopupManager : MonoBehaviour
 
     #endregion
     
-    
-
     public void ToggleLogPanel()
     {
         if (logDisplayManger != null)
@@ -132,83 +116,85 @@ public class PopupManager : MonoBehaviour
 
 }
 
-#region Customize view in Inspector
+    #region Customize view in Inspector
 
-#if UNITY_EDITOR
-[CustomEditor(typeof(PopupManager))]
-public class MyScriptEditor : Editor
-{
-    
-    private SerializedProperty _messageReceiverEvent;
-    private SerializedProperty _usePopup;
-    private SerializedProperty _popupDuration;
-    private SerializedProperty _popupPrefab;
-    private SerializedProperty _useLog;
-    private SerializedProperty _logDisplayManger;
-
-    private void OnEnable()
+    #if UNITY_EDITOR
+    [CustomEditor(typeof(PopupManager))]
+    public class MyScriptEditor : Editor
     {
-        _messageReceiverEvent = serializedObject.FindProperty("popupEvent");
-        _usePopup = serializedObject.FindProperty("usePopup");
-        _popupDuration = serializedObject.FindProperty("popupDuration");
-        _popupPrefab = serializedObject.FindProperty("popupPrefab");
-        _useLog = serializedObject.FindProperty("useLog");
-        _logDisplayManger = serializedObject.FindProperty("logDisplayManger");
-    }
-
-    public override void OnInspectorGUI()
-    {
-        // DrawDefaultInspector();
         
-        
-        serializedObject.Update();
-        var myScript = (PopupManager)target;
-        if (myScript.UseLog)
-            myScript.ToggleLogPanel();
-        else
-            myScript.ToggleLogPanel();
+        private SerializedProperty _messageReceiverEvent;
+        private SerializedProperty _usePopup;
+        private SerializedProperty _popupDuration;
+        private SerializedProperty _popupPrefab;
+        private SerializedProperty _useLog;
+        private SerializedProperty _logDisplayManger;
 
-        EditorGUILayout.LabelField("Messenger Event", EditorStyles.boldLabel);
-        EditorGUILayout.Separator();
-        EditorGUI.indentLevel++;
-        EditorGUILayout.PropertyField(_messageReceiverEvent, new GUIContent("Message Receiver Event"));
-
-        EditorGUI.indentLevel--;
-        EditorGUILayout.Separator();
-        
-        EditorGUILayout.LabelField("PopUp Window Options", EditorStyles.boldLabel);
-        EditorGUILayout.Separator();
-        EditorGUI.indentLevel++;
-        EditorGUILayout.PropertyField(_usePopup, new GUIContent("Use Popup"));
-
-        if (!myScript.UsePopup)
+        private void OnEnable()
         {
-            EditorGUILayout.HelpBox(
-                "Check if you want to see popups during game play", 
-                MessageType.Info);
+            _messageReceiverEvent = serializedObject.FindProperty("popupEvent");
+            _usePopup = serializedObject.FindProperty("usePopup");
+            _popupDuration = serializedObject.FindProperty("popupDuration");
+            _popupPrefab = serializedObject.FindProperty("popupPrefab");
+            _useLog = serializedObject.FindProperty("useLog");
+            _logDisplayManger = serializedObject.FindProperty("logDisplayManger");
         }
-        EditorGUILayout.PropertyField(_popupDuration, new GUIContent("Popup Duration in Sec"));
-        EditorGUILayout.PropertyField(_popupPrefab, new GUIContent("Popup Prefab"));
-        
-        EditorGUI.indentLevel--;
-        EditorGUILayout.Separator();
-        
-        EditorGUILayout.LabelField("Log Window Options", EditorStyles.boldLabel);
-        EditorGUI.indentLevel++;
-        EditorGUILayout.PropertyField(_useLog, new GUIContent("Use Log Window"));
-        if (!myScript.UseLog)
+
+        public override void OnInspectorGUI()
         {
-            EditorGUILayout.HelpBox(
-                "Check if you want to see Log window during game play.", 
-                MessageType.Info);
+            // DrawDefaultInspector();
+            
+            
+            serializedObject.Update();
+            var myScript = (PopupManager)target;
+            if (myScript.UseLog)
+                myScript.ToggleLogPanel();
+            else
+                myScript.ToggleLogPanel();
+
+            EditorGUILayout.LabelField("Messenger Event", EditorStyles.boldLabel);
+            EditorGUILayout.Separator();
+            EditorGUI.indentLevel++;
+            EditorGUILayout.PropertyField(_messageReceiverEvent, new GUIContent("Message Receiver Event"));
+
+            EditorGUI.indentLevel--;
+            EditorGUILayout.Separator();
+            
+            EditorGUILayout.LabelField("PopUp Window Options", EditorStyles.boldLabel);
+            EditorGUILayout.Separator();
+            EditorGUI.indentLevel++;
+            EditorGUILayout.PropertyField(_usePopup, new GUIContent("Use Popup"));
+
+            if (!myScript.UsePopup)
+            {
+                EditorGUILayout.HelpBox(
+                    "Check if you want to see popups during game play", 
+                    MessageType.Info);
+            }
+            EditorGUILayout.PropertyField(_popupDuration, new GUIContent("Popup Duration in Sec"));
+            EditorGUILayout.PropertyField(_popupPrefab, new GUIContent("Popup Prefab"));
+            
+            EditorGUI.indentLevel--;
+            EditorGUILayout.Separator();
+            
+            EditorGUILayout.LabelField("Log Window Options", EditorStyles.boldLabel);
+            EditorGUI.indentLevel++;
+            EditorGUILayout.PropertyField(_useLog, new GUIContent("Use Log Window"));
+            if (!myScript.UseLog)
+            {
+                EditorGUILayout.HelpBox(
+                    "Check if you want to see Log window during game play.", 
+                    MessageType.Info);
+            }
+            EditorGUILayout.PropertyField(_logDisplayManger, new GUIContent("Log Display Manager"));
+            
+            EditorGUI.indentLevel--;
+            EditorGUILayout.Separator();
+            serializedObject.ApplyModifiedProperties();
         }
-        EditorGUILayout.PropertyField(_logDisplayManger, new GUIContent("Log Display Manager"));
-        
-        EditorGUI.indentLevel--;
-        EditorGUILayout.Separator();
-        serializedObject.ApplyModifiedProperties();
     }
+    #endif
+
+    #endregion
 }
-#endif
 
-#endregion

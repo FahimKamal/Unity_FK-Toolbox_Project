@@ -5,7 +5,9 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-public enum ConditionOperator
+namespace Custom_Attribute
+{
+    public enum ConditionOperator
 {
     // A field is visible/enabled only if all conditions are true.
     AND,
@@ -191,3 +193,5 @@ public class ShowIfAttributeDrawer : PropertyDrawer
 }
 
 #endif
+}
+

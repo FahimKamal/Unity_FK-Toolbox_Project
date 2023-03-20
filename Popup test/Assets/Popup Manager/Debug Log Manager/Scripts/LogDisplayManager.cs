@@ -1,17 +1,19 @@
 using UnityEngine;
-using UnityEngine.UI;
 
-public class LogDisplayManager : MonoBehaviour
+namespace Debug_Log_Manager
 {
-    [SerializeField] private LogController _controller;
-
-    /// <summary>
-    /// Display the log text in log panel.
-    /// </summary>
-    /// <param name="logTxt">Text to display in log.</param>
-    public void Log(string logTxt)
+    public class LogDisplayManager : MonoBehaviour
     {
-        _controller.SetLogText(logTxt);
-    }
+        [SerializeField] private LogController _controller;
 
+        /// <summary>
+        /// Display the log text in log panel.
+        /// </summary>
+        /// <param name="logTxt">Text to display in log.</param>
+        public void Log(string logTxt)
+        {
+            _controller.SetLogText(logTxt);
+        }
+
+    }
 }

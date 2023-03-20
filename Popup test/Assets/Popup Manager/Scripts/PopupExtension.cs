@@ -1,25 +1,28 @@
 using UnityEngine;
 
-public static class PopupExtension 
+namespace Popup_Log_System
 {
-    /// <summary>
-    /// Show popup on screen and print log.
-    /// </summary>
-    /// <param name="popupEvent"></param>
-    /// <param name="description">Description of your message.</param>
-    /// <param name="title">Title of Popup.</param>
-    /// <param name="onlyLog">Set true if you only want to print log.</param>
-    public static void ShowPopup(this PopupEvent popupEvent, string description, string title = "Popup",
-        bool onlyLog = false)
+    public static class PopupExtension 
     {
-        if (popupEvent != null)
+        /// <summary>
+        /// Show popup on screen and print log.
+        /// </summary>
+        /// <param name="popupEvent"></param>
+        /// <param name="description">Description of your message.</param>
+        /// <param name="title">Title of Popup.</param>
+        /// <param name="onlyLog">Set true if you only want to print log.</param>
+        public static void ShowPopup(this PopupEvent popupEvent, string description, string title = "Popup",
+            bool onlyLog = false)
         {
-            popupEvent.RaiseEvent(new Messenge(description, title, onlyLog));
-        }
-        else
-        {
-            Debug.Log("Popup event object is not set in broadcaster:");
-        }
+            if (popupEvent != null)
+            {
+                popupEvent.RaiseEvent(new Messenge(description, title, onlyLog));
+            }
+            else
+            {
+                Debug.Log("Popup event object is not set in broadcaster:");
+            }
         
+        }
     }
 }

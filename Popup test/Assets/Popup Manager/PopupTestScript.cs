@@ -1,7 +1,7 @@
 using Custom_Attribute;
+using Popup_Log_System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 public class PopupTestScript : MonoBehaviour
 {

@@ -7,14 +7,6 @@
       "dependencies": {},
       "hash": "39da70419a2dc9ce0059b40dd64abcdfcef58ea1"
     },
-    "com.novalabs.fk-tools": {
-      "version": "file:C:/Users/Fahim Kamal/Documents/Unity Projects/Unity_Event_System_Using_Scriptable_Objects/Event System Using Scriptable Objects/Assets",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {
-        "com.madsbangh.easybuttons": "1.3.0"
-      }
-    },
     "com.unity.2d.animation": {
       "version": "7.0.8",
       "depth": 1,

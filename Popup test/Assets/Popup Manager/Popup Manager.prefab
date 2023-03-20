@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02eb79fba6262654b91fd82ee0975c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messengerEvent: {fileID: 11400000, guid: 0d6ce3fd041bd204a9ca3d5bd488adb3, type: 2}
+  popupEvent: {fileID: 11400000, guid: 0d6ce3fd041bd204a9ca3d5bd488adb3, type: 2}
   usePopup: 1
   popupDuration: 3
   popupPrefab: {fileID: 518775712009529825, guid: bfa61a3f46b18624bbff25cec1570476, type: 3}
@@ -64,7 +64,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6137447286772887216, guid: dceaea31c9a3241429dfbe8658679d6f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000022888184
+      value: -0.00010681152
       objectReference: {fileID: 0}
     - target: {fileID: 6137447286968844530, guid: dceaea31c9a3241429dfbe8658679d6f, type: 3}
       propertyPath: m_Pivot.x
@@ -176,11 +176,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6137447287751923712, guid: dceaea31c9a3241429dfbe8658679d6f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6137447287751923712, guid: dceaea31c9a3241429dfbe8658679d6f, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6137447287751923712, guid: dceaea31c9a3241429dfbe8658679d6f, type: 3}
       propertyPath: m_SizeDelta.y

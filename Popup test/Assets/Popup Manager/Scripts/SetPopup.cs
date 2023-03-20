@@ -21,7 +21,6 @@ public class SetPopup : MonoBehaviour
         this.title.text = title;
         this.description.text = description;
         animationCom.Play("Popup Animation on");
-        // CallBackManager.Instance.onPopupOpened?.Invoke();
     }
     
     // Destroy the popup after 2 seconds
@@ -30,7 +29,6 @@ public class SetPopup : MonoBehaviour
         yield return new WaitForSecondsRealtime(popupDuration);
         animationCom.Play("Popup Animation off");
         yield return new WaitForSecondsRealtime(0.5f);
-        // CallBackManager.Instance.onPopupClosed?.Invoke();
         
         Destroy(gameObject);
     }

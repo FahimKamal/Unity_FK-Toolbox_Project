@@ -1,29 +1,32 @@
+using Custom_Attribute;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class PopupTestScript : MonoBehaviour
 {
-    [SerializeField] private MessengerEvent messengerEvent;
+    [RequireReference]
+    [SerializeField] private PopupEvent popupEvent;
     public void HelloButton()
     {
-        Popup("Button pressed from hello button", "Notification", true);
+        popupEvent.ShowPopup("Button pressed from hello button", "Notification", true);
     }
+    
     
     public void HiButton()
     {
-        Popup( "Button pressed from hi button", "Notification");
+        popupEvent.ShowPopup( "Button pressed from hi button", "Notification");
     }
     
     public void ByeByeButton()
     {
-        Popup( "Button pressed from bye button", "Notification");
+        popupEvent.ShowPopup( "Button pressed from bye button", "Notification");
     }
 
     public void ExitButtonPressed()
     {
         Application.Quit();
-        Popup("Game Closing.");
+        popupEvent.ShowPopup("Game Closing.");
     }
 
     public void GoSecondPage()
@@ -34,10 +37,5 @@ public class PopupTestScript : MonoBehaviour
     public void GoFirstPage()
     {
         SceneManager.LoadScene(0);
-    }
-
-    private void Popup(string description,string title = "Popup", bool onlyLog = false)
-    {
-        messengerEvent.RaiseEvent(new Messenger(description, title, onlyLog));
     }
 }

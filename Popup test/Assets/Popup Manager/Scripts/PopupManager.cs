@@ -1,6 +1,7 @@
 using System;
 using Custom_Attribute;
 using UnityEngine;
+using UnityEngine.Serialization;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -27,15 +28,29 @@ public class PopupManager : MonoBehaviour
 
     private void OnEnable()
     {
-        messengerEvent.onEventRaised.AddListener(Call);
+        if (popupEvent != null) 
+        {
+            popupEvent.onEventRaised.AddListener(Call);
+        }
+        else
+        {
+            Debug.LogError("Popup event object is not set in listener:" + gameObject.name);
+        }
     }
 
     private void OnDisable()
     {
-        messengerEvent.onEventRaised.RemoveListener(Call);
+        if (popupEvent != null)
+        {
+            popupEvent.onEventRaised.RemoveListener(Call);
+        }
+        else
+        {
+            Debug.LogError("Popup event object is not set in listener:" + popupEvent.name);
+        }
     }
 
-    private void Call(Messenger message)
+    private void Call(Messenge message)
     {
         ShowPopup(message.description, message.title, message.onlyLog);
     }
@@ -62,7 +77,7 @@ public class PopupManager : MonoBehaviour
     [Tooltip("This event receives messages from different objects and delivers them here. Make sure to set it always.")]
     [SerializeField] 
     [RequireReference("This event receives messages from different objects and delivers them here. Make sure to set it with proper reference always.")]
-    private MessengerEvent messengerEvent;
+    private PopupEvent popupEvent;
     [Tooltip("Un-tick if you don't want to show popup on screen")]
     [SerializeField] 
     private bool usePopup = true;
@@ -133,7 +148,7 @@ public class MyScriptEditor : Editor
 
     private void OnEnable()
     {
-        _messageReceiverEvent = serializedObject.FindProperty("messengerEvent");
+        _messageReceiverEvent = serializedObject.FindProperty("popupEvent");
         _usePopup = serializedObject.FindProperty("usePopup");
         _popupDuration = serializedObject.FindProperty("popupDuration");
         _popupPrefab = serializedObject.FindProperty("popupPrefab");

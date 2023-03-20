@@ -2,20 +2,19 @@ using System;
 using Event_System_SO;
 using UnityEngine;
 [CreateAssetMenu(menuName = "Events/Messenger Event")]
-public class MessengerEvent : BaseEvent<Messenger>
+public class PopupEvent : BaseEvent<Messenge>
 {
-    
 }
 
 
 [Serializable]
-public class Messenger
+public class Messenge
 {
     public string description;
     public string title;
     public bool onlyLog;
 
-    public Messenger(string description, string title, bool onlyLog)
+    public Messenge(string description, string title, bool onlyLog)
     {
         this.description = description;
         this.title = title;

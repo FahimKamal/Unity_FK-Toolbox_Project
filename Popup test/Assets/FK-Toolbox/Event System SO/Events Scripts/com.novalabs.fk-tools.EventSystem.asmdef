@@ -1,6 +1,6 @@
 {
-    "name": "com.novalabs.fk-tools",
-    "rootNamespace": "",
+    "name": "com.novalabs.fk-tools.EventSystem",
+    "rootNamespace": "Event_System_SO",
     "references": [
         "GUID:f24cf67903b27ae498b3069ecc30cc11"
     ],

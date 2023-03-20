@@ -31,11 +31,11 @@ public class PopupTestScript : MonoBehaviour
 
     public void GoSecondPage()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("PopupExample 2");
     }
     
     public void GoFirstPage()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("PopupExample");
     }
 }

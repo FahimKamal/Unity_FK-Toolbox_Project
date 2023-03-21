@@ -1165,6 +1165,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 976.49097
       objectReference: {fileID: 0}
+    - target: {fileID: 496932089, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496932089, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 496932089, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1420906900, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -1173,6 +1185,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Popup Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 6032176785920239206, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
+      propertyPath: popupEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 3bc96de8da3386647ae5b36b8cbde594, type: 2}
     - target: {fileID: 6032176785920239207, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
       propertyPath: m_RootOrder
       value: 3

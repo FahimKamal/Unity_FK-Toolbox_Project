@@ -45,6 +45,12 @@ namespace Debug_Log_Manager
         /// <param name="logTxt">Text to display.</param>
         public void SetLogText(string logTxt)
         {
+            if (logTextBox.text.Length > 10000)
+            {
+                var halfLength = logTextBox.text.Length / 2;
+                var secondHalf = logTextBox.text.Substring(halfLength);
+                logTextBox.text = secondHalf;
+            }
             logTextBox.text += "Log [" + _logID++ + "]: " + logTxt + "\n";
         }
     }

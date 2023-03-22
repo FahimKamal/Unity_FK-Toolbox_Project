@@ -10,7 +10,7 @@ currently present in this package.
 jf
 </details>
 
-[someting](copy.md)
+
 Popup Manager is a small package that will help with debugging in mobile games. To find out if a specific 
 task or method is called or not. Just like how we use `Debug.Log()` method in console. 
 You will find a *.unitypackage file in here just import it in your project and add the 

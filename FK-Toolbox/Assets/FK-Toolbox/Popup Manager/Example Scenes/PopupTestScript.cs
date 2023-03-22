@@ -9,7 +9,7 @@ public class PopupTestScript : MonoBehaviour
     [SerializeField] private PopupEvent popupEvent;
     public void HelloButton()
     {
-        popupEvent.ShowPopup("Button pressed from hello button", "Notification", true);
+        popupEvent.ShowPopup(description:"Button pressed from hello button", title:"Notification", onlyLog:true);
     }
     
     

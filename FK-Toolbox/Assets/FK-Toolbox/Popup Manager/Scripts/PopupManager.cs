@@ -64,6 +64,7 @@ namespace Popup_Log_System
     [SerializeField] 
     [RequireReference("This event receives messages from different objects and delivers them here. Make sure to set it with proper reference always.")]
     private PopupEvent popupEvent;
+    
     [Tooltip("Un-tick if you don't want to show popup on screen")]
     [SerializeField] 
     private bool usePopup = true;

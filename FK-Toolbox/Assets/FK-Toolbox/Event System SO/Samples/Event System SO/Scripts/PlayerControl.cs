@@ -1,3 +1,4 @@
+using Custom_Attribute;
 using Event_System_SO;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -6,7 +7,9 @@ public class PlayerControl : MonoBehaviour
 {
     public float speed = 5f;
 
-    [FormerlySerializedAs("collide")] [SerializeField] private VoidEvent collideEvent;
+    [FormerlySerializedAs("collide")] 
+    [RequireReference]
+    [SerializeField] private VoidEvent collideEvent;
     [SerializeField] private StringEvent collideEventWithString;
     [SerializeField] private CustomClassEvent classEvent;
     
@@ -30,10 +33,10 @@ public class PlayerControl : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        // if (collideEvent != null)
-        // {
-        //     collideEvent.RaiseEvent();
-        // }
+        if (collideEvent != null)
+        {
+            collideEvent.RaiseEvent();
+        }
 
         if (collideEventWithString != null)
         {

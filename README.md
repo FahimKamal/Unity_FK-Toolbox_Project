@@ -132,7 +132,164 @@ Installation process for this package and all dependencies that are from github 
        <span style="font-size: 23px"> <strong>Expand</strong> </span>
      </summary>
   
-    Everyting else will be just here
+    You will find some build-in type of events that you can use for your different use case.
+    + <strong>Void Event : </strong> You can raise this event for your specific events and all other scripts 
+      that has subscribed to this event will listen and execute their specific tasks. No data will be passed on.
+    + <strong>Int Event : </strong> Will work same as <strong>Void Event</strong> only you will be able to passed on
+      a `int` value.
+    + <strong>String Event : </strong> Will work same as <strong>Void Event</strong> only you will be able to passed on
+      a `string` value.
+    + <strong>Custom Event : </strong> Will work same as <strong>Void Event</strong> but with more custom data type. 
+      by extending the `BaseEvent<T>` class you can passed on other data types even custom data class.
+      See use case section to understand how to do that.
+      
+    <details>
+      <summary>
+        <span style="font-size: 17px"> <strong>Usage</strong></span>
+      </summary>
+  
+    + ### `[Void Event]`
+      + #### Initialization: 
+        + Right Click in your `Project` Window and select.</br>
+        Create -> Events -> Void Event. Give it a name and save it.
+        + In your Broadcaster Script: Write these lines to reference the event and drag-n-drop the event from your assets folder.
+        ```c#
+         [RequireReference]
+         [SerializeField] private VoidEvent damageEvent;
+        ```
+        + Now to raise the event write these limes of code:
+        ```c#
+         private void OnCollisionEnter2D(Collision2D col)
+         {
+            if (collideEvent != null)
+            {
+                collideEvent.RaiseEvent();
+            }
+         }
+        ```
+        + Now in your Listener Scripts for example your UI controller : Write these lines to reference the event and drag-n-drop the event from your assets folder.
+        ```c#
+        [RequireReference]
+        [SerializeField] private VoidEvent damageEvent;
+        
+        ...
+        
+        private void OnEnable()
+        {
+          damageEvent.onEventRaised.AddListener(OnEventRaised);
+        }
+        
+        private void OnDisable()
+        {
+          damageEvent.onEventRaised.AddListener(OnEventRaised);
+        }
+        
+        private void OnEventRaised()
+        {
+          messageBox.text = "Player is collide with an enemy";
+          ...
+          // Other codes.
+          ...
+        }
+        
+        ...
+        ```
+        + Whatever you have in your `OnEventRaised()` method will be executed when the event is raised from 
+          the Broadcaster script.
+
+    + ### `[Int Event]`
+      + #### Initialization:
+          + Right Click in your `Project` Window and select.</br>
+            Create -> Events -> Int Event. Give it a name and save it.
+          + In your Broadcaster Script: Write these lines to reference the event and drag-n-drop the event from your assets folder.
+        ```c#
+         [RequireReference]
+         [SerializeField] private IntEvent damageEvent;
+        ```
+          + Now to raise the event write these limes of code: Value of `damageAmount` will ge passed on as parameter.
+        ```c#
+         ...
+         int damageAmount = 10;
+         ... 
+        
+         private void OnCollisionEnter2D(Collision2D col)
+         {
+            if (collideEvent != null)
+            {
+                collideEvent.RaiseEvent(damageAmount);
+            }
+         }
+        ```
+        + Now in your Listener Scripts for example your UI controller : Write these lines to reference the event and drag-n-drop the event from your assets folder.
+        ```c#
+        [RequireReference]
+        [SerializeField] private IntEvent damageEvent;
+        
+        ...
+        
+        private void OnEnable()
+        {
+          damageEvent.onEventRaised.AddListener(OnEventRaised);
+        }
+        
+        private void OnDisable()
+        {
+          damageEvent.onEventRaised.AddListener(OnEventRaised);
+        }
+        
+        private void OnEventRaised(int damageAmount)
+        {
+          messageBox.text = "Player took damage of" + damageAmount;
+          ...
+          // Other codes.
+          ...
+        }
+        
+        ...
+        ```
+        + In this case `damageAmount` will be carried here from Broadcaster and you can use the value as you need.
+
+    + ### `[Custom Event]`
+      + <strong>Initialization: </strong> Maybe you need to send some other data type like `float` or maybe some other
+        custom data class. You can do that by extending `BaseEvent<T>` class.
+      + Let's create a Event that will passed on `float` value. See below code:
+      ```c#
+      [CreateAssetMenu(menuName = "Events/Float Event")]
+      public class FloatEvent : BaseEvent<float>
+      {
+    
+      }
+      ```
+      + That's it. Now use it same way you would use `Int Event`.
+      + Let's Create a Event that will passed on a data class. See below code:
+      ```C#
+      [CreateAssetMenu(menuName = "Events/Messenger Event")]
+      public class PopupEvent : BaseEvent<Messenge>
+      {
+      }
+    
+    
+        [Serializable]
+        public class Messenge
+        {
+            public string description;
+            public string title;
+            public bool onlyLog;
+    
+            public Messenge(string description, string title, bool onlyLog)
+            {
+                this.description = description;
+                this.title = title;
+                this.onlyLog = onlyLog;
+            }
+        }
+      ```
+      + Above Event class has be used by the `Popup Manager`. It's that simple. You can use above event same way you would
+        use `IntEvent` or `FloatEvent`.
+
+  </details>
+    
+  
    </details>
 
 
@@ -162,7 +319,7 @@ Installation process for this package and all dependencies that are from github 
         <span style="font-size: 17px"> <strong>Usage</strong></span>
       </summary>
 
-    + <strong>Initialization</strong> <br>
+    <strong>Initialization</strong> <br>
     + Add the `Popup Manager` prefab into your scene.</br>
     + Select the features that you want to use in your game.
     + Make sure `Message Receiver Event` is set. You will find that in resource folder.<br><br>

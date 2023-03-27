@@ -26,7 +26,7 @@ namespace Event_System_SO
         /// Raises the event and passes the specified parameter to any subscribed event handlers. If there are no subscribed event handlers, this method does nothing.
         /// </summary>
         /// <param name="value">The parameter to pass to the event handlers.</param>
-        [Button(Mode = ButtonMode.EnabledInPlayMode, Expanded = true)]
+        [EasyButtons.Button(Mode = ButtonMode.EnabledInPlayMode, Expanded = true)]
         public void RaiseEvent(T value)
         {
             onEventRaised.Invoke(value);

@@ -157,13 +157,13 @@ Installation process for this package and all dependencies that are from github 
          [RequireReference]
          [SerializeField] private VoidEvent damageEvent;
         ```
-        + Now to raise the event write these limes of code:
+        + Now to raise the event write these lines of code:
         ```c#
          private void OnCollisionEnter2D(Collision2D col)
          {
-            if (collideEvent != null)
+            if (damageEvent != null)
             {
-                collideEvent.RaiseEvent();
+                damageEvent.RaiseEvent();
             }
          }
         ```
@@ -181,7 +181,7 @@ Installation process for this package and all dependencies that are from github 
         
         private void OnDisable()
         {
-          damageEvent.onEventRaised.AddListener(OnEventRaised);
+          damageEvent.onEventRaised.RemoveListener(OnEventRaised);
         }
         
         private void OnEventRaised()
@@ -206,7 +206,7 @@ Installation process for this package and all dependencies that are from github 
          [RequireReference]
          [SerializeField] private IntEvent damageEvent;
         ```
-          + Now to raise the event write these limes of code: Value of `damageAmount` will ge passed on as parameter.
+          + Now to raise the event write these lines of code: Value of `damageAmount` will ge passed on as parameter.
         ```c#
          ...
          int damageAmount = 10;
@@ -214,9 +214,9 @@ Installation process for this package and all dependencies that are from github 
         
          private void OnCollisionEnter2D(Collision2D col)
          {
-            if (collideEvent != null)
+            if (damageEvent != null)
             {
-                collideEvent.RaiseEvent(damageAmount);
+                damageEvent.RaiseEvent(damageAmount);
             }
          }
         ```
@@ -234,7 +234,7 @@ Installation process for this package and all dependencies that are from github 
         
         private void OnDisable()
         {
-          damageEvent.onEventRaised.AddListener(OnEventRaised);
+          damageEvent.onEventRaised.RemoveListener(OnEventRaised);
         }
         
         private void OnEventRaised(int damageAmount)

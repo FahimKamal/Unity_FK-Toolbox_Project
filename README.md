@@ -14,7 +14,12 @@ This package has below dependencies. You have to install them first.
    ```http request
    https://github.com/madsbangh/EasyButtons.git#upm
    ```
++ **NaughtyAttributes** by Denis Rizov </br>
 
+   ```http request
+   https://github.com/dbrizov/NaughtyAttributes.git#upm
+   ```
+  
 
 ## Installation
 

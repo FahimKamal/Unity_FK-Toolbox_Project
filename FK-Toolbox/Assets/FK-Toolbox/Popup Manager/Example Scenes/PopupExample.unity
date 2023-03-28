@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popupEvent: {fileID: 11400000, guid: 3bc96de8da3386647ae5b36b8cbde594, type: 2}
+  testso: {fileID: 11400000, guid: bbcdefa3ea396af43b300d10c95176e8, type: 2}
 --- !u!4 &110423262
 Transform:
   m_ObjectHideFlags: 0

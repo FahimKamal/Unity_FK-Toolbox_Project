@@ -1,5 +1,6 @@
 using Custom_Attribute;
 using Popup_Log_System;
+using TriInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

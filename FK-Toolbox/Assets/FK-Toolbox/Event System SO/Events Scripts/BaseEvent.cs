@@ -21,6 +21,8 @@ namespace Event_System_SO
         /// The event that will be raised when the RaiseEvent method is called. This is a UnityAction delegate that takes a single argument of type T.
         /// </summary>
         public UnityEvent<T> onEventRaised;
+        
+        
 
         /// <summary>
         /// Raises the event and passes the specified parameter to any subscribed event handlers. If there are no subscribed event handlers, this method does nothing.

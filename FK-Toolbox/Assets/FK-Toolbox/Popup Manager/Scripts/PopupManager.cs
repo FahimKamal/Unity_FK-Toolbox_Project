@@ -69,9 +69,9 @@ namespace Popup_Log_System
     [SerializeField] 
     private bool usePopup = true;
     [Tooltip("Set time in seconds")]
-    [SerializeField, ShowIf(ActionOnConditionFail.JUST_DISABLE, ConditionOperator.AND, nameof(usePopup))] 
+    [SerializeField, ShowIfTrue(ActionOnConditionFail.JUST_DISABLE, ConditionOperator.AND, nameof(usePopup))] 
     private float popupDuration = 3f;
-    [SerializeField, ShowIf(ActionOnConditionFail.JUST_DISABLE, ConditionOperator.AND, nameof(usePopup))]
+    [SerializeField, ShowIfTrue(ActionOnConditionFail.JUST_DISABLE, ConditionOperator.AND, nameof(usePopup))]
     [RequireReference("Set the popup prefab ref here. Can't be left empty.")]
     private GameObject popupPrefab;
     
@@ -80,7 +80,7 @@ namespace Popup_Log_System
     [SerializeField] 
     private bool useLog = false;
     
-    [SerializeField, ShowIf(ActionOnConditionFail.JUST_DISABLE, ConditionOperator.AND, nameof(useLog))] 
+    [SerializeField, ShowIfTrue(ActionOnConditionFail.JUST_DISABLE, ConditionOperator.AND, nameof(useLog))] 
     // [RequireReference("Get the child object of save name and set it here.")]
     [RequireReference]
     private GameObject logDisplayManger;

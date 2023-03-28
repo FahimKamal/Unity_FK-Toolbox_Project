@@ -122,6 +122,30 @@ Installation process for this package and all dependencies that are from github 
           You will see something like this in inspector. <br>
           ![](https://imgur.com/QWWAEo1.gif "Initialization")
       </details>
+
+  + ### `[Expandable]` Attribute
+
+    This Attribute is taken from **NaughtyAttributes** created by Denis Rizov. Visit the git repo
+    [here](https://github.com/dbrizov/NaughtyAttributes.git "NaughtyAttributes").
+
+    <details>
+     <summary>
+       <span style="font-size: 17px"> <strong>Usage</strong> </span>
+     </summary>
+
+      + Make scriptable objects expandable.
+        ```c#
+         public class NaughtyComponent : MonoBehaviour
+         {
+             [Expandable]
+             public ScriptableObject scriptableObject;
+         }
+        ```
+        You will see something like this in inspector. <br>
+        ![](https://imgur.com/OVuBKEK.gif "Expandable_Inspector")
+
+    </details>
+    
   </details>
 
 

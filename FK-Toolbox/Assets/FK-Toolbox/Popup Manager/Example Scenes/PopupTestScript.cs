@@ -9,7 +9,7 @@ public class PopupTestScript : MonoBehaviour
     [RequireReference, Title("something")]
     [TriInspector.InfoBox("fjdsklfdslk")]
     [Tooltip("fjdkslfjdslkfj")]
-    [Expandable]
+    // [Expandable]
     [SerializeField] private PopupEvent popupEvent;
     public void HelloButton()
     {

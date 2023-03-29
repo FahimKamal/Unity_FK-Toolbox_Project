@@ -42,7 +42,7 @@ public class ShowIfTrueAttribute : PropertyAttribute
 
 #if UNITY_EDITOR
 
-[CustomPropertyDrawer(typeof(ShowIfAttribute), true)]
+[CustomPropertyDrawer(typeof(ShowIfTrueAttribute), true)]
 public class ShowIfAttributeDrawer : PropertyDrawer
 {
 

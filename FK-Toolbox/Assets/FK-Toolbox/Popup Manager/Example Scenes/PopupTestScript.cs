@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class PopupTestScript : MonoBehaviour
 {
-    [RequireReference]
+    [RequireReference, Title("something")]
+    [TriInspector.InfoBox("fjdsklfdslk")]
+    [Tooltip("fjdkslfjdslkfj")]
+    [Expandable]
     [SerializeField] private PopupEvent popupEvent;
     public void HelloButton()
     {

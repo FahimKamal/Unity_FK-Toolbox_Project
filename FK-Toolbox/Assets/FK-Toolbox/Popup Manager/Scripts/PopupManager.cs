@@ -1,5 +1,6 @@
 using Custom_Attribute;
 using Debug_Log_Manager;
+using TriInspector;
 using UnityEngine;
 
 #if UNITY_EDITOR
@@ -60,6 +61,7 @@ namespace Popup_Log_System
 
     #region Variables
 
+    [Title("InfoBox Message Types")]
     [Tooltip("This event receives messages from different objects and delivers them here. Make sure to set it always.")]
     [SerializeField] 
     [RequireReference("This event receives messages from different objects and delivers them here. Make sure to set it with proper reference always.")]
@@ -143,9 +145,14 @@ namespace Popup_Log_System
 
         public override void OnInspectorGUI()
         {
-            // DrawDefaultInspector();
+            DrawDefaultInspector();
             
+            DrawCustomInspector();
             
+        }
+
+        private void DrawCustomInspector()
+        {
             serializedObject.Update();
             var myScript = (PopupManager)target;
             if (myScript.UseLog)

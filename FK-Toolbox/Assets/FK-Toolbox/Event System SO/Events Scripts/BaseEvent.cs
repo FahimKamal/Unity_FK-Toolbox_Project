@@ -30,7 +30,7 @@ namespace Event_System_SO
         /// </summary>
         /// <param name="value">The parameter to pass to the event handlers.</param>
         // [EasyButtons.Button(Mode = ButtonMode.EnabledInPlayMode, Expanded = true)]
-        [Button]
+        // [Button]
         public void RaiseEvent(T value)
         {
             onEventRaised.Invoke(value);

@@ -9,15 +9,10 @@ currently present in this package.
 
 This package has below dependencies. You have to install them first.
 
-+ **Easy Buttons** by Mads Bang Hoffensetz </br>
++ **Tri-Inspector** by codewriter-packages </br>
 
    ```http request
-   https://github.com/madsbangh/EasyButtons.git#upm
-   ```
-+ **NaughtyAttributes** by Denis Rizov </br>
-
-   ```http request
-   https://github.com/dbrizov/NaughtyAttributes.git#upm
+   https://github.com/codewriter-packages/Tri-Inspector.git
    ```
   
 
@@ -116,35 +111,52 @@ Installation process for this package and all dependencies that are from github 
 
         + (Optional) You can also add you own warning text.
           ```c#
-          [RequireReference]
+          [RequireReference("You must set this reference. Otherwise script will crush.")]
           [SerializeField] private PopupEvent popupEvent;
           ```
           You will see something like this in inspector. <br>
           ![](https://imgur.com/QWWAEo1.gif "Initialization")
       </details>
 
-  + ### `[Expandable]` Attribute
+[//]: # (  + ### `[Expandable]` Attribute)
 
-    This Attribute is taken from **NaughtyAttributes** created by Denis Rizov. Visit the git repo
-    [here](https://github.com/dbrizov/NaughtyAttributes.git "NaughtyAttributes").
+[//]: # ()
+[//]: # (    This Attribute is taken from **NaughtyAttributes** created by Denis Rizov. Visit the git repo)
 
-    <details>
-     <summary>
-       <span style="font-size: 17px"> <strong>Usage</strong> </span>
-     </summary>
+[//]: # (    [here]&#40;https://github.com/dbrizov/NaughtyAttributes.git "NaughtyAttributes"&#41;.)
 
-      + Make scriptable objects expandable.
-        ```c#
-         public class NaughtyComponent : MonoBehaviour
-         {
-             [Expandable]
-             public ScriptableObject scriptableObject;
-         }
-        ```
-        You will see something like this in inspector. <br>
-        ![](https://imgur.com/OVuBKEK.gif "Expandable_Inspector")
+[//]: # ()
+[//]: # (    <details>)
 
-    </details>
+[//]: # (     <summary>)
+
+[//]: # (       <span style="font-size: 17px"> <strong>Usage</strong> </span>)
+
+[//]: # (     </summary>)
+
+[//]: # ()
+[//]: # (      + Make scriptable objects expandable.)
+
+[//]: # (        ```c#)
+
+[//]: # (         public class NaughtyComponent : MonoBehaviour)
+
+[//]: # (         {)
+
+[//]: # (             [Expandable])
+
+[//]: # (             public ScriptableObject scriptableObject;)
+
+[//]: # (         })
+
+[//]: # (        ```)
+
+[//]: # (        You will see something like this in inspector. <br>)
+
+[//]: # (        ![]&#40;https://imgur.com/OVuBKEK.gif "Expandable_Inspector"&#41;)
+
+[//]: # ()
+[//]: # (    </details>)
     
   </details>
 

@@ -26,13 +26,13 @@ public enum ActionOnConditionFail
 /// <summary>
 /// Only show the selected property if given condition is meet.
 /// </summary>
-public class ShowIfAttribute : PropertyAttribute
+public class ShowIfTrueAttribute : PropertyAttribute
 {
     public ActionOnConditionFail Action {get;private set;}
     public ConditionOperator Operator {get;private set;}
     public string[] Conditions {get;private set;}
 
-    public ShowIfAttribute(ActionOnConditionFail action, ConditionOperator conditionOperator, params string[] conditions)
+    public ShowIfTrueAttribute(ActionOnConditionFail action, ConditionOperator conditionOperator, params string[] conditions)
     {
         Action  = action;
         Operator = conditionOperator;
@@ -42,7 +42,7 @@ public class ShowIfAttribute : PropertyAttribute
 
 #if UNITY_EDITOR
 
-[CustomPropertyDrawer(typeof(ShowIfAttribute), true)]
+[CustomPropertyDrawer(typeof(ShowIfTrueAttribute), true)]
 public class ShowIfAttributeDrawer : PropertyDrawer
 {
 
@@ -102,7 +102,7 @@ public class ShowIfAttributeDrawer : PropertyDrawer
 
     private bool MeetsConditions(SerializedProperty property)
     {
-        var showIfAttribute = this.attribute as ShowIfAttribute;
+        var showIfAttribute = this.attribute as ShowIfTrueAttribute;
         var target = property.serializedObject.targetObject;
         var conditionValues = new List<bool>();
 
@@ -158,7 +158,7 @@ public class ShowIfAttributeDrawer : PropertyDrawer
     {
         // Calculate the property height, if we don't meet the condition and the draw mode is DontDraw, then height will be 0.
         var meetsCondition = MeetsConditions(property);
-        var showIfAttribute = this.attribute as ShowIfAttribute;
+        var showIfAttribute = this.attribute as ShowIfTrueAttribute;
 
         if (!meetsCondition && showIfAttribute.Action ==
             ActionOnConditionFail.DONT_DRAW)
@@ -177,7 +177,7 @@ public class ShowIfAttributeDrawer : PropertyDrawer
             return;
         }
 
-        var showIfAttribute = this.attribute as ShowIfAttribute;
+        var showIfAttribute = this.attribute as ShowIfTrueAttribute;
         if (showIfAttribute.Action == ActionOnConditionFail.DONT_DRAW)
         {
             return;

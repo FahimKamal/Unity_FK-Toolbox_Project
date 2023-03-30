@@ -1,15 +1,19 @@
 using Custom_Attribute;
 using Popup_Log_System;
+using TriInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PopupTestScript : MonoBehaviour
 {
-    [RequireReference]
+    [RequireReference, Title("something")]
+    [TriInspector.InfoBox("fjdsklfdslk")]
+    [Tooltip("fjdkslfjdslkfj")]
+    // [Expandable]
     [SerializeField] private PopupEvent popupEvent;
     public void HelloButton()
     {
-        popupEvent.ShowPopup("Button pressed from hello button", "Notification", true);
+        popupEvent.ShowPopup(description:"Button pressed from hello button", title:"Notification", onlyLog:true);
     }
     
     

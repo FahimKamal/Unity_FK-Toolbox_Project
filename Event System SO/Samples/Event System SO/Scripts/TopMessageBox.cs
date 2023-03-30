@@ -15,7 +15,7 @@ public class TopMessageBox : MonoBehaviour
     }
     private void OnDisable()
     {
-        eventWithString.onEventRaised.AddListener(OnEventRaised);
+        eventWithString.onEventRaised.RemoveListener(OnEventRaised);
     }
 
     private void OnEventRaised(string message)

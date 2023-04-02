@@ -1,15 +1,11 @@
 using Custom_Attribute;
 using Popup_Log_System;
-using TriInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PopupTestScript : MonoBehaviour
 {
-    [RequireReference, Title("something")]
-    [TriInspector.InfoBox("fjdsklfdslk")]
-    [Tooltip("fjdkslfjdslkfj")]
-    // [Expandable]
+    //[RequireReference, Title("something")]
     [SerializeField] private PopupEvent popupEvent;
     public void HelloButton()
     {

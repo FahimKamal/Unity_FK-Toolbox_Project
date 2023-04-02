@@ -2,7 +2,7 @@
     "name": "com.novalabs.fk-tools.EventSystem",
     "rootNamespace": "Event_System_SO",
     "references": [
-        "GUID:324caed91501a9c47a04ebfd87b68794"
+        "GUID:f24cf67903b27ae498b3069ecc30cc11"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

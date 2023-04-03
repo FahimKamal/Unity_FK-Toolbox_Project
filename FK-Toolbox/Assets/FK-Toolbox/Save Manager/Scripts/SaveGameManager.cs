@@ -11,6 +11,7 @@ using UnityEngine;
 ///     in run time mode class will temporary save data in ran and after closing the game
 ///     all data will be lost. Otherwise this class will save data in a json file.
 /// </summary>
+
 public class SaveGameManager : MonoBehaviour
 {
     [Tooltip("If active Game will save game data while playing. After restarting the game all data will be lost.")]
@@ -22,32 +23,52 @@ public class SaveGameManager : MonoBehaviour
     private string mFileName;
 
 
-    // public GameDataClass Storage { get; private set; }
-    public GameDataClass Storage;
-    
-    
-    //[SerializedDictionary("Key", "Value"), SerializeField]
-    public SerializedDictionary<string, bool> boolData;
+    public GameDataClass Storage { get; private set; }
 
-    public int a;
+#if UNITY_EDITOR
+    [SerializeField] private SerializedDictionary<string, bool> boolData;
+    [SerializeField] private SerializedDictionary<string, int> intData;
+    [SerializeField] private SerializedDictionary<string, float> floatData;
+    [SerializeField] private SerializedDictionary<string, string> stringData;
+#endif
 
-    
+
     #region Initialization
 
     public static SaveGameManager Instance;
 
     private void Awake()
     {
-        // if (Instance != null)
-        // {
-        //     Destroy(gameObject);
-        //     return;
-        // }
-        //
-        // Instance = this;
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
         mFileName = Path.Combine(Application.persistentDataPath, "GameData.json");
         Storage = runtimeOnly ? new GameDataClass() : Load();
-        //DontDestroyOnLoad(gameObject);
+
+#if UNITY_EDITOR
+        foreach (var data in Storage.boolData)
+        {
+            boolData.Add(data.Key, data.Value);
+        }
+        foreach (var data in Storage.intData)
+        {
+            intData.Add(data.Key, data.Value);
+        }
+        foreach (var data in Storage.floatData)
+        {
+            floatData.Add(data.Key, data.Value);
+        }
+        foreach (var data in Storage.stringData)
+        {
+            stringData.Add(data.Key, data.Value);
+        }
+#endif
+        
+        DontDestroyOnLoad(gameObject);
     }
 
     #endregion
@@ -115,7 +136,7 @@ public class SaveGameManager : MonoBehaviour
         }
     }
 
-   
+
 
     #region Check methods
 
@@ -158,12 +179,33 @@ public class SaveGameManager : MonoBehaviour
     public void DeleteKey(string key)
     {
         if (HasKey(key, DataType.Boolean))
+        {
             Storage.boolData.Remove(key);
+#if UNITY_EDITOR
+            boolData.Remove(key);
+#endif
+        }
         else if (HasKey(key, DataType.Float))
+        {
             Storage.floatData.Remove(key);
+#if UNITY_EDITOR
+            floatData.Remove(key);
+#endif
+        }
         else if (HasKey(key, DataType.Integer))
+        {
             Storage.intData.Remove(key);
-        else if (HasKey(key, DataType.String)) Storage.stringData.Remove(key);
+#if UNITY_EDITOR
+            intData.Remove(key);
+#endif
+        }
+        else if (HasKey(key, DataType.String))
+        {
+            Storage.stringData.Remove(key);
+#if UNITY_EDITOR
+            stringData.Remove(key);
+#endif
+        }
     }
 
     #endregion
@@ -179,9 +221,23 @@ public class SaveGameManager : MonoBehaviour
     {
         //var storage = Load();
         if (HasKey(key, DataType.Boolean))
+        {
             Storage.boolData[key] = value;
+#if UNITY_EDITOR
+            if (boolData.ContainsKey(key))
+            {
+                boolData.Remove(key);
+                boolData.Add(key, value);
+            }
+#endif
+        }
         else
+        {
             Storage.boolData.Add(key, value);
+#if UNITY_EDITOR
+            boolData.Add(key, value);
+#endif
+        }
 
         Save();
     }
@@ -195,10 +251,24 @@ public class SaveGameManager : MonoBehaviour
     {
         //var storage = Load();
         if (HasKey(key, DataType.Integer))
+        {
             Storage.intData[key] = value;
+#if UNITY_EDITOR
+            if (intData.ContainsKey(key))
+            {
+                intData.Remove(key);
+                intData.Add(key, value);
+            }
+#endif
+        }
         else
+        {
             Storage.intData.Add(key, value);
-
+#if UNITY_EDITOR
+            intData.Add(key, value);
+#endif
+        }
+        
         Save();
     }
 
@@ -211,9 +281,23 @@ public class SaveGameManager : MonoBehaviour
     {
         //var storage = Load();
         if (HasKey(key, DataType.Float))
+        {
             Storage.floatData[key] = value;
+#if UNITY_EDITOR
+            if (floatData.ContainsKey(key))
+            {
+                floatData.Remove(key);
+                floatData.Add(key, value);
+            }
+#endif
+        }
         else
+        {
             Storage.floatData.Add(key, value);
+#if UNITY_EDITOR
+            floatData.Add(key, value);
+#endif
+        }
 
         Save();
     }
@@ -227,9 +311,23 @@ public class SaveGameManager : MonoBehaviour
     {
         //var storage = Load();
         if (HasKey(key, DataType.String))
+        {
             Storage.stringData[key] = value;
+#if UNITY_EDITOR
+            if (stringData.ContainsKey(key))
+            {
+                stringData.Remove(key);
+                stringData.Add(key, value);
+            }
+#endif
+        }
         else
+        {
             Storage.stringData.Add(key, value);
+#if UNITY_EDITOR
+            stringData.Add(key, value);
+#endif
+        }
 
         Save();
     }
@@ -317,6 +415,12 @@ public class SaveGameManager : MonoBehaviour
     public void DeleteAll()
     {
         Storage = new GameDataClass();
+#if UNITY_EDITOR
+        boolData = new SerializedDictionary<string, bool>();
+        intData = new SerializedDictionary<string, int>();
+        floatData = new SerializedDictionary<string, float>();
+        stringData = new SerializedDictionary<string, string>();
+#endif
         Save();
     }
 
@@ -363,6 +467,7 @@ public class SaveGameManager : MonoBehaviour
         serializer.TryDeserialize(data, typeof(T), ref deserialized).AssertSuccessWithoutWarnings();
         file.Close();
 
+        Debug.Log("data is loaded." + deserialized as T);
         return deserialized as T;
     }
 

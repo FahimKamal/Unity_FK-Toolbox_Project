@@ -207,7 +207,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 536981079}
         m_TargetAssemblyTypeName: Controller, Assembly-CSharp
         m_MethodName: RandomGen
         m_Mode: 1
@@ -593,9 +593,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 536981077}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f67f315b32236214d99e2ba93404e796, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e3578858f0b2874195623b22dc16ec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popupEvent: {fileID: 11400000, guid: 3bc96de8da3386647ae5b36b8cbde594, type: 2}
+  saveGameManager: {fileID: 1530509751}
+  description: {fileID: 2061424878}
 --- !u!1 &1107113090
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,7 +818,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 536981079}
         m_TargetAssemblyTypeName: Controller, Assembly-CSharp
         m_MethodName: LocalLoad
         m_Mode: 1
@@ -956,6 +959,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 587284666191139097, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.00016021729
+      objectReference: {fileID: 0}
     - target: {fileID: 6032176785920239205, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
       propertyPath: m_Name
       value: Popup Manager
@@ -1090,7 +1097,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 536981079}
         m_TargetAssemblyTypeName: Controller, Assembly-CSharp
         m_MethodName: LocalSave
         m_Mode: 1
@@ -1389,12 +1396,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runtimeOnly: 0
   popupEvent: {fileID: 11400000, guid: 3bc96de8da3386647ae5b36b8cbde594, type: 2}
-  Storage:
-    boolData:
-      _serializedList: []
   boolData:
     _serializedList: []
-  a: 0
+  intData:
+    _serializedList: []
+  floatData:
+    _serializedList: []
+  stringData:
+    _serializedList: []
 --- !u!1 &1722275232
 GameObject:
   m_ObjectHideFlags: 0

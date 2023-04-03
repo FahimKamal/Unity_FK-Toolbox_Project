@@ -5,14 +5,16 @@ using FullSerializer;
 using Popup_Log_System;
 using UnityEngine;
 
-/// <summary>
+namespace SaveData
+{
+    /// <summary>
 ///     This class works same as Unity's default PlayerPrefs class. You can save bool, int,
 ///     float and string data with a string key. You can also make it run time only. While
 ///     in run time mode class will temporary save data in ran and after closing the game
 ///     all data will be lost. Otherwise this class will save data in a json file.
 /// </summary>
 
-public class SaveGameManager : MonoBehaviour
+public class SaveDataManager : MonoBehaviour
 {
     [Tooltip("If active Game will save game data while playing. After restarting the game all data will be lost.")]
     [SerializeField]
@@ -35,7 +37,7 @@ public class SaveGameManager : MonoBehaviour
 
     #region Initialization
 
-    public static SaveGameManager Instance;
+    public static SaveDataManager Instance;
 
     private void Awake()
     {
@@ -472,4 +474,5 @@ public class SaveGameManager : MonoBehaviour
     }
 
     #endregion
+}
 }

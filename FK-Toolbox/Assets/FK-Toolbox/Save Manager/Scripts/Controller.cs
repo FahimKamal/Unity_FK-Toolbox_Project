@@ -1,4 +1,3 @@
-using Haptic;
 using Popup_Log_System;
 using TMPro;
 using UnityEngine;
@@ -125,11 +124,6 @@ namespace SaveManager
             SaveData.SetInt("IntVal", mRandomInt);
             SaveData.SetFloat("FloatVal", mRandomFloat);
             SaveData.SetString("StringVal", mRandomString);
-            Vibrator.Vibrate(HapticEffect.High);
-            Vibrator.Vibrate(HapticEffect.Medium);
-            Vibrator.Vibrate(HapticEffect.Small);
-            Vibrator.Vibrate(HapticEffect.Little);
-            Vibrator.Vibrate(500);
             description.text = "Value saved";
         }
 

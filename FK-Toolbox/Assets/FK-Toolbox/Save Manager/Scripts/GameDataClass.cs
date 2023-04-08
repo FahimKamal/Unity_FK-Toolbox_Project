@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace SaveData
+namespace SaveManager
 {
     public enum DataType
     {

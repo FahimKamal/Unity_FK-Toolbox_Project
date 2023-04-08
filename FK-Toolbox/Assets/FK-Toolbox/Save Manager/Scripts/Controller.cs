@@ -1,10 +1,9 @@
 using Popup_Log_System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-namespace SaveData
+namespace SaveManager
 {
     public class Controller : MonoBehaviour
     {

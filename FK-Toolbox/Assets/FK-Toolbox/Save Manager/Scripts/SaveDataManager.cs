@@ -5,7 +5,7 @@ using FullSerializer;
 using Popup_Log_System;
 using UnityEngine;
 
-namespace SaveData
+namespace SaveManager
 {
     /// <summary>
 ///     This class works same as Unity's default PlayerPrefs class. You can save bool, int,

@@ -1,6 +1,6 @@
 {
     "name": "com.novalabs.fk-tools.SaveDataManager",
-    "rootNamespace": "SaveData",
+    "rootNamespace": "Save Manager",
     "references": [
         "GUID:d525ad6bd40672747bde77962f1c401e",
         "GUID:75618cc788ccffb488a6d1aafe62a986",

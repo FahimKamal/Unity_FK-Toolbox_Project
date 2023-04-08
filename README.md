@@ -4,17 +4,22 @@ These are some set of tools that I have created to smoothen my journey of game d
 unity 3D. Maybe I'll add more in future as the need arise. Read below the names and usages of tools
 currently present in this package.
 
-
 ## Dependencies
 
 This package has below dependencies. You have to install them first.
 
-+ **Tri-Inspector** by codewriter-packages </br>
++ **Easy Buttons** by Mads Bang Hoffensetz </br>
 
    ```http request
-   https://github.com/codewriter-packages/Tri-Inspector.git
+   https://github.com/madsbangh/EasyButtons.git#upm 
    ```
-  
+
++ **Serialized Dictionary** by ayellowpaper </br>
+
+   ```http request
+   https://assetstore.unity.com/packages/tools/utilities/serialized-dictionary-243052
+   ```
+  ***Already added in the project, no farther action needed.** 
 
 ## Installation
 
@@ -118,53 +123,42 @@ Installation process for this package and all dependencies that are from github 
           ![](https://imgur.com/QWWAEo1.gif "Initialization")
       </details>
 
-[//]: # (  + ### `[Expandable]` Attribute)
+  + ### `[Expandable]` Attribute
 
-[//]: # ()
-[//]: # (    This Attribute is taken from **NaughtyAttributes** created by Denis Rizov. Visit the git repo)
+    This Attribute is taken from **NaughtyAttributes** created by Denis Rizov. Visit the git repo
 
-[//]: # (    [here]&#40;https://github.com/dbrizov/NaughtyAttributes.git "NaughtyAttributes"&#41;.)
+    [here](https://github.com/dbrizov/NaughtyAttributes.git "NaughtyAttributes").
 
-[//]: # ()
-[//]: # (    <details>)
+    <details>
 
-[//]: # (     <summary>)
+     <summary>
 
-[//]: # (       <span style="font-size: 17px"> <strong>Usage</strong> </span>)
+       <span style="font-size: 17px"> <strong>Usage</strong> </span>
 
-[//]: # (     </summary>)
+     </summary>
 
-[//]: # ()
-[//]: # (      + Make scriptable objects expandable.)
+      + Make scriptable objects expandable.
 
-[//]: # (        ```c#)
+        ```c#
+         public class NaughtyComponent : MonoBehaviour
+         {
+             [Expandable]
+             public ScriptableObject scriptableObject;
+         }
+        ```
 
-[//]: # (         public class NaughtyComponent : MonoBehaviour)
+        You will see something like this in inspector. <br>
 
-[//]: # (         {)
+        ![](https://imgur.com/OVuBKEK.gif "Expandable_Inspector")
 
-[//]: # (             [Expandable])
+    </details>
 
-[//]: # (             public ScriptableObject scriptableObject;)
-
-[//]: # (         })
-
-[//]: # (        ```)
-
-[//]: # (        You will see something like this in inspector. <br>)
-
-[//]: # (        ![]&#40;https://imgur.com/OVuBKEK.gif "Expandable_Inspector"&#41;)
-
-[//]: # ()
-[//]: # (    </details>)
-    
   </details>
 
-
 + ## Event System with Scriptable Object
-  This is a flexible and easy-to-use event system for Unity that allows you to define events with 
+  This is a flexible and easy-to-use event system for Unity that allows you to define events with
   custom data types. It decouples event logic from game objects and scripts, making it easier to maintain
-  and refactor code. It includes a base event class and a void event class, and events can be raised by 
+  and refactor code. It includes a base event class and a void event class, and events can be raised by
   calling the RaiseEvent method. Several example classes and a demo scene are included to demonstrate
   the system's functionality. </br> </br>
 
@@ -172,128 +166,132 @@ Installation process for this package and all dependencies that are from github 
      <summary>
        <span style="font-size: 23px"> <strong>Expand</strong> </span>
      </summary>
-  
-    You will find some build-in type of events that you can use for your different use case.
-    + <strong>Void Event : </strong> You can raise this event for your specific events and all other scripts 
+
+  You will find some build-in type of events that you can use for your different use case.
+    + <strong>Void Event : </strong> You can raise this event for your specific events and all other scripts
       that has subscribed to this event will listen and execute their specific tasks. No data will be passed on.
     + <strong>Int Event : </strong> Will work same as <strong>Void Event</strong> only you will be able to passed on
       a `int` value.
     + <strong>String Event : </strong> Will work same as <strong>Void Event</strong> only you will be able to passed on
       a `string` value.
-    + <strong>Custom Event : </strong> Will work same as <strong>Void Event</strong> but with more custom data type. 
+    + <strong>Custom Event : </strong> Will work same as <strong>Void Event</strong> but with more custom data type.
       by extending the `BaseEvent<T>` class you can passed on other data types even custom data class.
       See use case section to understand how to do that.
-      
+
     <details>
       <summary>
         <span style="font-size: 17px"> <strong>Usage</strong></span>
       </summary>
-  
+
     + ### `[Void Event]`
-      + #### Initialization: 
-        + Right Click in your `Project` Window and select.</br>
-        Create -> Events -> Void Event. Give it a name and save it.
-        + In your Broadcaster Script: Write these lines to reference the event and drag-n-drop the event from your assets folder.
-        ```c#
-         [RequireReference]
-         [SerializeField] private VoidEvent damageEvent;
-        ```
-        + Now to raise the event write these lines of code:
-        ```c#
-         private void OnCollisionEnter2D(Collision2D col)
-         {
-            if (damageEvent != null)
-            {
-                damageEvent.RaiseEvent();
-            }
-         }
-        ```
-        + Now in your Listener Scripts for example your UI controller : Write these lines to reference the event and drag-n-drop the event from your assets folder.
-        ```c#
-        [RequireReference]
-        [SerializeField] private VoidEvent damageEvent;
-        
-        ...
-        
-        private void OnEnable()
-        {
-          damageEvent.onEventRaised.AddListener(OnEventRaised);
-        }
-        
-        private void OnDisable()
-        {
-          damageEvent.onEventRaised.RemoveListener(OnEventRaised);
-        }
-        
-        private void OnEventRaised()
-        {
-          messageBox.text = "Player is collide with an enemy";
+        + #### Initialization:
+            + Right Click in your `Project` Window and select.</br>
+              Create -> Events -> Void Event. Give it a name and save it.
+            + In your Broadcaster Script: Write these lines to reference the event and drag-n-drop the event from your
+              assets folder.
+          ```c#
+           [RequireReference]
+           [SerializeField] private VoidEvent damageEvent;
+          ```
+            + Now to raise the event write these lines of code:
+          ```c#
+           private void OnCollisionEnter2D(Collision2D col)
+           {
+              if (damageEvent != null)
+              {
+                  damageEvent.RaiseEvent();
+              }
+           }
+          ```
+            + Now in your Listener Scripts for example your UI controller : Write these lines to reference the event and
+              drag-n-drop the event from your assets folder.
+          ```c#
+          [RequireReference]
+          [SerializeField] private VoidEvent damageEvent;
+          
           ...
-          // Other codes.
+          
+          private void OnEnable()
+          {
+            damageEvent.onEventRaised.AddListener(OnEventRaised);
+          }
+          
+          private void OnDisable()
+          {
+            damageEvent.onEventRaised.RemoveListener(OnEventRaised);
+          }
+          
+          private void OnEventRaised()
+          {
+            messageBox.text = "Player is collide with an enemy";
+            ...
+            // Other codes.
+            ...
+          }
+          
           ...
-        }
-        
-        ...
-        ```
-        + Whatever you have in your `OnEventRaised()` method will be executed when the event is raised from 
-          the Broadcaster script.
+          ```
+            + Whatever you have in your `OnEventRaised()` method will be executed when the event is raised from
+              the Broadcaster script.
 
     + ### `[Int Event]`
-      + #### Initialization:
-          + Right Click in your `Project` Window and select.</br>
-            Create -> Events -> Int Event. Give it a name and save it.
-          + In your Broadcaster Script: Write these lines to reference the event and drag-n-drop the event from your assets folder.
-        ```c#
-         [RequireReference]
-         [SerializeField] private IntEvent damageEvent;
-        ```
-          + Now to raise the event write these lines of code: Value of `damageAmount` will ge passed on as parameter.
-        ```c#
-         ...
-         int damageAmount = 10;
-         ... 
-        
-         private void OnCollisionEnter2D(Collision2D col)
-         {
-            if (damageEvent != null)
-            {
-                damageEvent.RaiseEvent(damageAmount);
-            }
-         }
-        ```
-        + Now in your Listener Scripts for example your UI controller : Write these lines to reference the event and drag-n-drop the event from your assets folder.
-        ```c#
-        [RequireReference]
-        [SerializeField] private IntEvent damageEvent;
-        
-        ...
-        
-        private void OnEnable()
-        {
-          damageEvent.onEventRaised.AddListener(OnEventRaised);
-        }
-        
-        private void OnDisable()
-        {
-          damageEvent.onEventRaised.RemoveListener(OnEventRaised);
-        }
-        
-        private void OnEventRaised(int damageAmount)
-        {
-          messageBox.text = "Player took damage of" + damageAmount;
+        + #### Initialization:
+            + Right Click in your `Project` Window and select.</br>
+              Create -> Events -> Int Event. Give it a name and save it.
+            + In your Broadcaster Script: Write these lines to reference the event and drag-n-drop the event from your
+              assets folder.
+          ```c#
+           [RequireReference]
+           [SerializeField] private IntEvent damageEvent;
+          ```
+            + Now to raise the event write these lines of code: Value of `damageAmount` will ge passed on as parameter.
+          ```c#
+           ...
+           int damageAmount = 10;
+           ... 
+          
+           private void OnCollisionEnter2D(Collision2D col)
+           {
+              if (damageEvent != null)
+              {
+                  damageEvent.RaiseEvent(damageAmount);
+              }
+           }
+          ```
+            + Now in your Listener Scripts for example your UI controller : Write these lines to reference the event and
+              drag-n-drop the event from your assets folder.
+          ```c#
+          [RequireReference]
+          [SerializeField] private IntEvent damageEvent;
+          
           ...
-          // Other codes.
+          
+          private void OnEnable()
+          {
+            damageEvent.onEventRaised.AddListener(OnEventRaised);
+          }
+          
+          private void OnDisable()
+          {
+            damageEvent.onEventRaised.RemoveListener(OnEventRaised);
+          }
+          
+          private void OnEventRaised(int damageAmount)
+          {
+            messageBox.text = "Player took damage of" + damageAmount;
+            ...
+            // Other codes.
+            ...
+          }
+          
           ...
-        }
-        
-        ...
-        ```
-        + In this case `damageAmount` will be carried here from Broadcaster and you can use the value as you need.
+          ```
+            + In this case `damageAmount` will be carried here from Broadcaster and you can use the value as you need.
 
     + ### `[Custom Event]`
-      + <strong>Initialization: </strong> Maybe you need to send some other data type like `float` or maybe some other
-        custom data class. You can do that by extending `BaseEvent<T>` class.
-      + Let's create a Event that will passed on `float` value. See below code:
+        + <strong>Initialization: </strong> Maybe you need to send some other data type like `float` or maybe some other
+          custom data class. You can do that by extending `BaseEvent<T>` class.
+        + Let's create a Event that will passed on `float` value. See below code:
       ```c#
       [CreateAssetMenu(menuName = "Events/Float Event")]
       public class FloatEvent : BaseEvent<float>
@@ -301,8 +299,8 @@ Installation process for this package and all dependencies that are from github 
     
       }
       ```
-      + That's it. Now use it same way you would use `Int Event`.
-      + Let's Create a Event that will passed on a data class. See below code:
+        + That's it. Now use it same way you would use `Int Event`.
+        + Let's Create a Event that will passed on a data class. See below code:
       ```C#
       [CreateAssetMenu(menuName = "Events/Messenger Event")]
       public class PopupEvent : BaseEvent<Messenge>
@@ -325,18 +323,17 @@ Installation process for this package and all dependencies that are from github 
             }
         }
       ```
-      + Above Event class has be used by the `Popup Manager`. It's that simple. You can use above event same way you would
-        use `IntEvent` or `FloatEvent`.
+        + Above Event class has be used by the `Popup Manager`. It's that simple. You can use above event same way you
+          would
+          use `IntEvent` or `FloatEvent`.
 
   </details>
-    
-  
+
    </details>
 
-
 + ## Popup Manager
-  Popup Manager is a small package that can be useful for debugging in mobile games. Its purpose is to help determine 
-  if a specific task or method is being called. It works similar to how we use the `Debug.Log()` method 
+  Popup Manager is a small package that can be useful for debugging in mobile games. Its purpose is to help determine
+  if a specific task or method is being called. It works similar to how we use the `Debug.Log()` method
   in the console.
 
   To use Popup Manager, simply add the Popup Manager Prefab to your scene. You can use it in three ways:
@@ -360,7 +357,7 @@ Installation process for this package and all dependencies that are from github 
         <span style="font-size: 17px"> <strong>Usage</strong></span>
       </summary>
 
-    <strong>Initialization</strong> <br>
+  <strong>Initialization</strong> <br>
     + Add the `Popup Manager` prefab into your scene.</br>
     + Select the features that you want to use in your game.
     + Make sure `Message Receiver Event` is set. You will find that in resource folder.<br><br>
@@ -392,5 +389,12 @@ Installation process for this package and all dependencies that are from github 
   ###### Note to self: For customize look of the Popup Manager in inspector. You have written some codes. Reference to those codes in future.
 
   </details>
+
++ ## Save Manager
+  Save Manager works same as the unity buildin `PlayerPrefs`. It has the same methods and more to work with.
+  You can save `int`, `float`, `bool` and `string` data types. What is special about this package is that
+  you can find all your saved data in one place as a `json` file in key-value pair format.
+  Also you will be about to see the values in your inspector as well. Which is not possible with
+  `PlayerPrefs`.
 
 

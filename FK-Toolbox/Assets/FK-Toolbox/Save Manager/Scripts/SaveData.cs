@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SaveData
+namespace SaveManager
 {
     public static class SaveData
     {

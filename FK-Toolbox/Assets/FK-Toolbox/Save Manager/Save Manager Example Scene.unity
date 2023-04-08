@@ -597,7 +597,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popupEvent: {fileID: 11400000, guid: 3bc96de8da3386647ae5b36b8cbde594, type: 2}
-  saveGameManager: {fileID: 1530509751}
   description: {fileID: 2061424878}
 --- !u!1 &1107113090
 GameObject:

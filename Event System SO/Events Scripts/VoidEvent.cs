@@ -1,4 +1,4 @@
-using TriInspector;
+using EasyButtons;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -20,8 +20,7 @@ namespace Event_System_SO
         /// <summary>
         /// Raises the event by invoking the OnEventRaised delegate. If there are no subscribed event handlers, this method does nothing.
         /// </summary>
-        // [Button(Mode = ButtonMode.EnabledInPlayMode)]
-        [Button]
+        [Button(Mode = ButtonMode.EnabledInPlayMode)]
         public void RaiseEvent()
         {
             onEventRaised.Invoke();

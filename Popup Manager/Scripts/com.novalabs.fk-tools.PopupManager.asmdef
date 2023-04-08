@@ -4,8 +4,7 @@
     "references": [
         "Unity.TextMeshPro",
         "com.novalabs.fk-tools",
-        "com.novalabs.fk-tools.EventSystem",
-        "TriInspector"
+        "com.novalabs.fk-tools.EventSystem"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -24,6 +24,10 @@
     {
       "displayName": "Popup Manager Example",
       "path": "Popup Manager/Example Scenes"
+    },
+    {
+      "displayName": "Save Manager Example",
+      "path": "Save Manager"
     }
   ],
   "unity": "2021.3"

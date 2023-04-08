@@ -224,6 +224,7 @@ public class SaveDataManager : MonoBehaviour
         //var storage = Load();
         if (HasKey(key, DataType.Boolean))
         {
+            
             Storage.boolData[key] = value;
 #if UNITY_EDITOR
             if (boolData.ContainsKey(key))

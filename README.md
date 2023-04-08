@@ -306,8 +306,6 @@ Installation process for this package and all dependencies that are from github 
       public class PopupEvent : BaseEvent<Messenge>
       {
       }
-    
-    
         [Serializable]
         public class Messenge
         {
@@ -390,11 +388,81 @@ Installation process for this package and all dependencies that are from github 
 
   </details>
 
+
 + ## Save Manager
   Save Manager works same as the unity buildin `PlayerPrefs`. It has the same methods and more to work with.
   You can save `int`, `float`, `bool` and `string` data types. What is special about this package is that
   you can find all your saved data in one place as a `json` file in key-value pair format.
-  Also you will be about to see the values in your inspector as well. Which is not possible with
-  `PlayerPrefs`.
+  Also you will be about to see the saved values in your inspector while in play mode as well as search by 
+  keys. Which is 
+  not possible with `PlayerPrefs`.
 
+    <details>
+        <summary>
+          <span style="font-size: 23px"> <strong>Expand</strong> </span>
+        </summary>
+    
+    See below example to know how to use this.
+    </br></br>
+    ![Example](https://imgur.com/IPC8P1V.png "Example")
+    </br>***Inspector View***
+    </br></br>
+    ![Example](https://imgur.com/gjO3aC4.png "Example")
+  </br>***While in play mode***
 
+    <details>
+      <summary>
+        <span style="font-size: 17px"> <strong>Usage</strong></span>
+      </summary>
+    
+    <strong>Initialization</strong> <br>
+    + Add the `Save Data Manager` script with a empty game object in your game.
+    + Keep in mind this is a singleton script. So, add this script at the first scene of your game.
+    + Selecting `Runtime Only` option will let you save data only while in play mode. After exiting the all data will be lost.
+      If not selected then data will be saved at `Application.persistentDataPath` location on you device as a 
+      `.json` file.
+    
+  <strong>To save data:</strong> Use below code: <br>
+    ```c#
+    SaveData.SetBool("boolVal", value);  
+    SaveData.SetInt("IntVal", mRandomInt);
+    SaveData.SetFloat("FloatVal", mRandomFloat);
+    SaveData.SetString("StringVal", mRandomString);
+    ```
+
+  <strong>To load data:</strong> Use below code: <br>
+    ```c#
+    SaveData.GetBool("boolVal", value);  
+    SaveData.GetInt("IntVal", mRandomInt);
+    SaveData.GetFloat("FloatVal", mRandomFloat);
+    SaveData.GetString("StringVal", mRandomString);
+    ```
+  Read the static `SaveData` class to find out all available method that you can use. You will find all method
+  that is available to you with `PlayerPrefs`.
+
+  </details>
+  
+</details>
+
++ ## Haptic Feedback
+  To give haptic feedback or vibration effect in you game you can use this `static` class.
+
+    <details>
+        <summary>
+          <span style="font-size: 23px"> <strong>Expand</strong> </span>
+        </summary>
+  
+  + Simply use bellow code to give haptic feedback in you code.
+    ```c#
+    Vibrator.Vibrate(HapticEffect.High);
+    // or
+    Vibrator.Vibrate(HapticEffect.Medium);
+    // or
+    Vibrator.Vibrate(HapticEffect.Small);
+    // or
+    Vibrator.Vibrate(HapticEffect.Little);
+    
+    // You can also give custom duration in milliseconds
+    Vibrator.Vibrate(250);
+    ```
+    </details>

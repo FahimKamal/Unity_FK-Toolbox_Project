@@ -1,3 +1,4 @@
+using FloatRef;
 using Popup_Log_System;
 using TMPro;
 using UnityEngine;
@@ -20,6 +21,8 @@ namespace SaveManager
         private int mRandomInt;
         private float mRandomFloat;
         private string mRandomString;
+        
+        [SerializeField] private FloatReference testFloat;
 
         private void OnEnable()
         {

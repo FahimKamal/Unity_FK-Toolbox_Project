@@ -598,6 +598,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popupEvent: {fileID: 11400000, guid: 3bc96de8da3386647ae5b36b8cbde594, type: 2}
   description: {fileID: 2061424878}
+  testFloat:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 0}
 --- !u!1 &1107113090
 GameObject:
   m_ObjectHideFlags: 0

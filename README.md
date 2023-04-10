@@ -466,3 +466,66 @@ Installation process for this package and all dependencies that are from github 
     Vibrator.Vibrate(250);
     ```
     </details>
+
+
++ ## `FloatReference` and `FloatVariable`
+  I have taken this from `GDC Talk-2017` by Ryan Hipple. You can find it on Youtube. Watch it [here](https://youtu.be/raQ3iHhE_Kk).
+
+    <details>
+        <summary>
+          <span style="font-size: 23px"> <strong>Usage</strong> </span>
+        </summary>
+
+    + To use `FloatReferance` in your script write below code. 
+      ```c#
+      [SerializeField] private FloatReference testFloat;
+      ```
+    + You will be give two option `Use Constant` or `Use Variable`.
+      </br></br>
+      ![](https://imgur.com/a12x1Z0.gif)
+      </br>
+      ****`Use Constant`***: You will be able to use it as any other float variable. </br>
+      ****`Use Variable`***: Value will be taken from a scriptable object of type `FloatVariable`.</br> 
+      *To Create a`FloatVariable` object: In `Project` window Right-click and select `Create -> FloatVariable`.</br> 
+      </details>
+    
+[//]: # (+ ## Haptic Feedback)
+
+[//]: # (  To give haptic feedback or vibration effect in you game you can use this `static` class.)
+
+[//]: # ()
+[//]: # (    <details>)
+
+[//]: # (        <summary>)
+
+[//]: # (          <span style="font-size: 23px"> <strong>Expand</strong> </span>)
+
+[//]: # (        </summary>)
+
+[//]: # ()
+[//]: # (    + Simply use bellow code to give haptic feedback in you code.)
+
+[//]: # (      ```c#)
+
+[//]: # (      Vibrator.Vibrate&#40;HapticEffect.High&#41;;)
+
+[//]: # (      // or)
+
+[//]: # (      Vibrator.Vibrate&#40;HapticEffect.Medium&#41;;)
+
+[//]: # (      // or)
+
+[//]: # (      Vibrator.Vibrate&#40;HapticEffect.Small&#41;;)
+
+[//]: # (      // or)
+
+[//]: # (      Vibrator.Vibrate&#40;HapticEffect.Little&#41;;)
+
+[//]: # (      )
+[//]: # (      // You can also give custom duration in milliseconds)
+
+[//]: # (      Vibrator.Vibrate&#40;250&#41;;)
+
+[//]: # (      ```)
+
+[//]: # (      </details>)

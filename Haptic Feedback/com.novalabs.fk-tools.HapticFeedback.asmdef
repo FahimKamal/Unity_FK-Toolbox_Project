@@ -1,0 +1,14 @@
+{
+    "name": "com.novalabs.fk-tools.HapticFeedback",
+    "rootNamespace": "Haptic",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

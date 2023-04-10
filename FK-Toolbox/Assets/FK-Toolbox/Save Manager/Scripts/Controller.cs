@@ -21,8 +21,6 @@ namespace SaveManager
         private int mRandomInt;
         private float mRandomFloat;
         private string mRandomString;
-        
-        [SerializeField] private FloatReference testFloat;
 
         private void OnEnable()
         {

@@ -11,7 +11,7 @@ This package has below dependencies. You have to install them first.
 + **Easy Buttons** by Mads Bang Hoffensetz </br>
 
    ```http request
-   https://github.com/madsbangh/EasyButtons.git#upm 
+   https://github.com/madsbangh/EasyButtons.git#upm
    ```
 
 + **Serialized Dictionary** by ayellowpaper </br>

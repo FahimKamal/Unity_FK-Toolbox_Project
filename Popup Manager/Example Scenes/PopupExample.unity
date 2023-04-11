@@ -1564,6 +1564,14 @@ PrefabInstance:
       propertyPath: useLog
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6032176785920239206, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
+      propertyPath: usePopup
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032176785920239206, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
+      propertyPath: _IsPersistent
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6032176785920239207, guid: a91d4f7a7f34fd94f9f12ed46dba44b3, type: 3}
       propertyPath: m_RootOrder
       value: 3

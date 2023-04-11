@@ -1,3 +1,4 @@
+using FloatRef;
 using Popup_Log_System;
 using TMPro;
 using UnityEngine;
@@ -20,6 +21,7 @@ namespace SaveManager
         private int mRandomInt;
         private float mRandomFloat;
         private string mRandomString;
+        [SerializeField] private FloatReference tstFloat;
 
         private void OnEnable()
         {
@@ -124,7 +126,6 @@ namespace SaveManager
             SaveData.SetInt("IntVal", mRandomInt);
             SaveData.SetFloat("FloatVal", mRandomFloat);
             SaveData.SetString("StringVal", mRandomString);
-
             description.text = "Value saved";
         }
 

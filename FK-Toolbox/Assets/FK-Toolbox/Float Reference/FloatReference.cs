@@ -12,7 +12,7 @@ namespace FloatRef
     [Serializable]
     public class FloatReference
     {
-        public bool UseConstant = true;
+        public bool UseConstant = false;
         public float ConstantValue;
         public FloatVariable Variable;
 
@@ -21,7 +21,7 @@ namespace FloatRef
 
         public FloatReference(float value)
         {
-            UseConstant = true;
+            UseConstant = false;
             ConstantValue = value;
         }
 

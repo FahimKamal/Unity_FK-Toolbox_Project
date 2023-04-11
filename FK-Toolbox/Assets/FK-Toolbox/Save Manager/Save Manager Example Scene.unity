@@ -598,7 +598,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popupEvent: {fileID: 11400000, guid: 3bc96de8da3386647ae5b36b8cbde594, type: 2}
   description: {fileID: 2061424878}
-  testFloat:
+  tstFloat:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 0}

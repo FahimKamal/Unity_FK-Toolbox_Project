@@ -10,6 +10,7 @@ public class PopupTestScript : MonoBehaviour
     public void HelloButton()
     {
         popupEvent.ShowPopup(description:"Button pressed from hello button", title:"Notification", onlyLog:true);
+        PopupManager.Instance.ShowPopup(description:"Button pressed from hello button singleton", title:"Notification", onlyLog:true);
     }
     
     

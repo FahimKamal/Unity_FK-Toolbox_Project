@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1856
     height: 1037
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Hierarchy
   m_RootView: {fileID: 7}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 140
+  controlID: 18
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 20
+  controlID: 84
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 21
+  controlID: 85
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -415,7 +415,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 21572
+  m_LastSelectedObjectID: -41596
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -485,22 +485,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/FK-Toolbox/Float Reference
+    - Assets/FK-Toolbox/Popup Manager/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/FK-Toolbox/Float Reference
+  - Assets/FK-Toolbox/Popup Manager/Scripts
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Fahim Kamal\Documents\Unity Projects\Unity_FK-Toolbox_Project\FK-Toolbox
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 46}
-    m_SelectedIDs: bc680000
-    m_LastClickedID: 26812
-    m_ExpandedIDs: 00000000ca560000d4560000b0680000bc68000000ca9a3bffffff7f
+    m_SelectedIDs: 587f0000
+    m_LastClickedID: 32600
+    m_ExpandedIDs: 000000008e7d0000907d0000cc7d0000ce7d000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -528,7 +528,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: fa8d0000
     m_LastClickedID: 36346
-    m_ExpandedIDs: 00000000ca560000
+    m_ExpandedIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -656,9 +656,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 24fbffff
+      m_SelectedIDs: f056ffff
+      m_LastClickedID: -43280
+      m_ExpandedIDs: cc53fffff256ffffcc57ffffa458ffffee5bffff865dffff585effff0061ffff8461ffff1263ffff3264ffff1c66ffffb868ffff7869ffff0c6bfffff46bffffb46dffffcc6effff1c70ffff9675fffff079ffff747affff047cffffda7cffff9c7fffffec83ffff76a4ffff6ca8fffffca8ffff5eadfffff8aeffffacc8ffffaec8ffff06cfffff44d0fffff4ffffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -962,9 +962,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -1.0213349, y: -0.16683254, z: -8.436712}
+    m_Target: {x: 540, y: 960, z: 0}
     speed: 2
-    m_Value: {x: -1.0213349, y: -0.16683254, z: -8.436712}
+    m_Value: {x: 540, y: 960, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1015,9 +1015,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 5.8630795
+    m_Target: 1101.4536
     speed: 2
-    m_Value: 5.8630795
+    m_Value: 1101.4536
   m_Ortho:
     m_Target: 1
     speed: 2

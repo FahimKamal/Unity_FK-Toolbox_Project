@@ -1,0 +1,16 @@
+{
+    "name": "com.novalabs.fk-tools.FloatReference.editor",
+    "rootNamespace": "FloatReference.Editor",
+    "references": [
+        "GUID:54b90487ddbecb74ab2cce6a4cd0d3fe"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

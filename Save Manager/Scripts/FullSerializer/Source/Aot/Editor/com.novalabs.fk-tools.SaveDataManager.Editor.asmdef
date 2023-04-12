@@ -1,0 +1,18 @@
+{
+    "name": "com.novalabs.fk-tools.SaveDataManager.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:1d71fda14914bc9489bc06d854a6be8d"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -8,9 +8,6 @@ currently present in this package.
 
 This package has below dependencies. You have to install them first.
 
-https://streamtape.com/v/4PyOAPd4VoHODY/Con_La_Brisa_%28Film_Version%29_-_Talokan_Theme_-_Black_Panther_Wakanda_Forever_Soundtrack_MV.mp4
-
-<iframe src="https://streamtape.com/e/4PyOAPd4VoHODY/" width="800" height="600" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
 
 + **Easy Buttons** by Mads Bang Hoffensetz </br>
 

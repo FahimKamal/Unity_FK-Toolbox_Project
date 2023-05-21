@@ -1,6 +1,6 @@
 {
   "name": "com.novalabs.fk-tools",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "FK-Toolbox",
   "description": "I have created a set of tools to use for my unity projects. One is an event system to communicate between scripts without direct reference. \nTwo is a log system that will show logs and popup(if needed) while I'm testing my game on a mobile device where I can't see unity's console and some custom attribute classes. \n\nAlso I will be modifying and adding more tools as I need. \n",
   "dependencies": {

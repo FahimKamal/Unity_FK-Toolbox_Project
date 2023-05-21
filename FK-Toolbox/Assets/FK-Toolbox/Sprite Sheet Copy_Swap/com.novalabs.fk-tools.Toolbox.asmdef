@@ -2,7 +2,8 @@
     "name": "com.novalabs.fk-tools.Toolbox",
     "rootNamespace": "FK_Toolbox",
     "references": [
-        "GUID:f24cf67903b27ae498b3069ecc30cc11"
+        "GUID:f24cf67903b27ae498b3069ecc30cc11",
+        "GUID:11fbe8c10cb7b2047bb737de43268188"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

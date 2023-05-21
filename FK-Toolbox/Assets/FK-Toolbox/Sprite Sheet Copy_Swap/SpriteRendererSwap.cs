@@ -2,30 +2,23 @@ using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace FK_Toolbox
 {
-    public class CanvasImageSwap : MonoBehaviour
+    public class SpriteRendererSwap : MonoBehaviour
     {
         [SerializeField] private Texture2D oldTexture;
         [SerializeField] private Texture2D newTexture;
         [SerializeField] private List<Sprite> oldSprites;
         [SerializeField] private List<Sprite> newSprites;
-    
-        [Multiline]
-        [SerializeField] private string description;
-    
+
+        [Multiline] [SerializeField] private string description;
+
         [SerializeField] private bool swapPossible;
-    
-        [SerializeField] private List<GameObjectAndImageHolder> gameObjectsWithImages;
-        [SerializeField] private List<GameObjectAndImageHolder> gameObjectsWithProblem;
-        [SerializeField] private List<GameObjectAndImageHolder> gameObjectsUnchanged;
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+
+        [SerializeField] private List<GameObjectAndSpriteHolder> gameObjectsWithSprites;
+        [SerializeField] private List<GameObjectAndSpriteHolder> gameObjectsWithProblem;
+        [SerializeField] private List<GameObjectAndSpriteHolder> gameObjectsUnchanged;
 
 #if UNITY_EDITOR
         /// <summary>
@@ -39,7 +32,8 @@ namespace FK_Toolbox
             {
                 foreach (var item in oldTextureData)
                 {
-                    if (item is Sprite){
+                    if (item is Sprite)
+                    {
                         oldSprites.Add(item as Sprite);
                     }
                 }
@@ -50,15 +44,17 @@ namespace FK_Toolbox
             {
                 foreach (var item in newTextureData)
                 {
-                    if (item is Sprite){
+                    if (item is Sprite)
+                    {
                         newSprites.Add(item as Sprite);
                     }
                 }
             }
+
             EditorUtility.SetDirty(this);
         }
 
-    
+
         [EasyButtons.Button]
         private void CompareBothSpriteList()
         {
@@ -78,7 +74,7 @@ namespace FK_Toolbox
 
             bool spriteDifference = false;
             foreach (var sprite in oldSprites)
-            { 
+            {
                 // Check if sprite.name is present in newSprites list.
                 var spriteName = sprite.name;
 
@@ -115,115 +111,114 @@ namespace FK_Toolbox
             EditorUtility.SetDirty(this);
         }
 
-    
 
         [EasyButtons.Button]
-        void GetAllGameObjectWithImage()
+        void GetAllGameObjectWithSprite()
         {
-            gameObjectsWithImages.Clear();
+            gameObjectsWithSprites.Clear();
 
             var gameObjects = GetAllChilds(gameObject.transform);
-            foreach (var gameObj in gameObjects)
+            foreach (var gameObject in gameObjects)
             {
-                var image = gameObj.GetComponent<Image>();
-                if (image != null)
+                var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+                if (spriteRenderer != null)
                 {
-                    var gameObjectAndImageHolder = new GameObjectAndImageHolder
-                    {
-                        gameObject = gameObj,
-                        image = image
-                    };
-                    gameObjectsWithImages.Add(gameObjectAndImageHolder);
+                    var gameObjectAndSpriteHolder = new GameObjectAndSpriteHolder();
+                    gameObjectAndSpriteHolder.gameObject = gameObject;
+                    gameObjectAndSpriteHolder.sprite = spriteRenderer.sprite;
+                    gameObjectsWithSprites.Add(gameObjectAndSpriteHolder);
                 }
             }
+
             EditorUtility.SetDirty(this);
         }
 
         [EasyButtons.Button]
         void ClearGameObjectList()
         {
-            gameObjectsWithImages.Clear();
+            gameObjectsWithSprites.Clear();
             gameObjectsWithProblem.Clear();
             gameObjectsUnchanged.Clear();
             description = "GameObject List Cleared.";
             EditorUtility.SetDirty(this);
         }
 
-    
+
         [EasyButtons.Button]
         void CheckGameObjects()
         {
-            if (gameObjectsWithImages.Count == 0)
+            if (gameObjectsWithSprites.Count == 0)
             {
                 description = "List is empty";
                 return;
             }
-        
+
             gameObjectsWithProblem.Clear();
             gameObjectsUnchanged.Clear();
 
-            foreach (var obj in gameObjectsWithImages)
+            foreach (var obj in gameObjectsWithSprites)
             {
                 // check if the attached SpriteRender has any sprite or not
-                var image = obj.gameObject.GetComponent<Image>();
-                if (image.sprite == null)
+                var spriteRenderer = obj.gameObject.GetComponent<SpriteRenderer>();
+                if (spriteRenderer.sprite == null)
                 {
                     gameObjectsWithProblem.Add(obj);
-                    Debug.Log( "SpriteRenderer is not attached to " + obj.gameObject.name);
+                    Debug.Log("SpriteRenderer is not attached to " + obj.gameObject.name);
                 }
                 else
                 {
                     gameObjectsUnchanged.Add(obj);
                 }
             }
-        
         }
 
 
         [EasyButtons.Button]
         void SwapSprites()
         {
-            if (!swapPossible || !(gameObjectsWithImages.Count > 0))
+            if (!swapPossible || !(gameObjectsWithSprites.Count > 0))
             {
                 return;
             }
 
-            // Now swap all sprites of GameObject from list gameObjectsWithImages with newSprites list. 
-            foreach (var gameObjectAndImageHolder in gameObjectsWithImages)
+            // Now swap all sprites of GameObject from list gameObjectsWithSprites with newSprites list. 
+            foreach (var gameObjectAndSpriteHolder in gameObjectsWithSprites)
             {
-                var image = gameObjectAndImageHolder.gameObject.GetComponent<Image>();
-                if (image != null)
+                var spriteRenderer = gameObjectAndSpriteHolder.gameObject.GetComponent<SpriteRenderer>();
+                if (spriteRenderer != null)
                 {
-                    if (image.sprite == null)
+                    if (gameObjectAndSpriteHolder.sprite == null)
                     {
                         continue;
                     }
-                    var index = newSprites.FindIndex(x => x.name == gameObjectAndImageHolder.image.sprite.name);
+
+                    var index = newSprites.FindIndex(x => x.name == gameObjectAndSpriteHolder.sprite.name);
                     if (index != -1)
                     {
-                        image.sprite = newSprites[index];
-                        Debug.Log("Sprite Swapped for " + gameObjectAndImageHolder.gameObject.name);
-                        if(gameObjectsUnchanged.Contains(gameObjectAndImageHolder))
+                        spriteRenderer.sprite = newSprites[index];
+                        if (gameObjectsUnchanged.Contains(gameObjectAndSpriteHolder))
                         {
-                            gameObjectsUnchanged.Remove(gameObjectAndImageHolder);
+                            gameObjectsUnchanged.Remove(gameObjectAndSpriteHolder);
                         }
                     }
                 }
             }
+
             EditorUtility.SetDirty(this);
         }
-    
-    
+
+
         List<GameObject> GetAllChilds(Transform _t)
         {
             List<GameObject> ts = new List<GameObject>();
- 
+
             foreach (Transform t in _t)
             {
                 ts.Add(t.gameObject);
                 if (t.childCount > 0)
                     ts.AddRange(GetAllChilds(t));
             }
+
             return ts;
         }
 
@@ -231,9 +226,9 @@ namespace FK_Toolbox
     }
 
     [Serializable]
-    class GameObjectAndImageHolder
+    class GameObjectAndSpriteHolder
     {
         public GameObject gameObject;
-        public Image image;
+        public Sprite sprite;
     }
 }

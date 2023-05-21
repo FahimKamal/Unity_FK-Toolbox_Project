@@ -7,6 +7,11 @@ using UnityEngine;
 
 namespace FK_Toolbox
 {
+    /// <summary>
+    /// A Reference texture will be given. Program will find all other textures from that directory and sub-directory.
+    /// Then it will check all textures from list and find textures that has multiple sprites of same name in it.
+    /// So I can make all sprite with unique name. 
+    /// </summary>
     public class SpriteUniqueNameCheck : MonoBehaviour
     {
 #if UNITY_EDITOR
@@ -43,6 +48,17 @@ namespace FK_Toolbox
                 if (data.Extension == ".png" || data.Extension == ".jpg")
                 {
                     allTexturesInRefLocation.Add(AssetDatabase.LoadAssetAtPath<Texture2D>(filePath + data.Name));
+                }
+            }
+            
+            // Goto All subdirectories and find all textures from those locations as well.
+            foreach (var data in fileInfo.GetDirectories())
+            {
+                foreach (var data2 in data.GetFiles()){
+                    if (data2.Extension == ".png" || data2.Extension == ".jpg")
+                    {
+                        allTexturesInRefLocation.Add(AssetDatabase.LoadAssetAtPath<Texture2D>(filePath + data.Name + "/" + data2.Name));
+                    }
                 }
             }
         }

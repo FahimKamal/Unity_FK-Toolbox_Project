@@ -4,6 +4,10 @@ using UnityEngine;
 
 namespace FK_Toolbox
 {
+    /// <summary>
+    /// Will select all gameObjects either with SpriteRender for Image component and put them in respective list.
+    /// Also will separate gameObjects that has sprite missing and put them in separate list. 
+    /// </summary>
     public class NullSpriteRendererAndImageCheck : MonoBehaviour
     {
         [SerializeField, ShowOnlyFK] private List<GameObject> nullSpriteRendererGO = new List<GameObject>();

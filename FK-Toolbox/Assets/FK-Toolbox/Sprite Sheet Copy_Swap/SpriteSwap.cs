@@ -9,6 +9,11 @@ using UnityEngine;
 
 namespace FK_Toolbox
 {
+    /// <summary>
+    /// Will be attached with a parent gameObject. Program will get all gameObject with spriteRenderer.
+    /// User will have to give old texture spriteSheet also the new texture spriteSheet. This way user will be able to
+    /// swap the old sprites with new given sprites. 
+    /// </summary>
     public class SpriteSwap : MonoBehaviour
     {
 #if UNITY_EDITOR

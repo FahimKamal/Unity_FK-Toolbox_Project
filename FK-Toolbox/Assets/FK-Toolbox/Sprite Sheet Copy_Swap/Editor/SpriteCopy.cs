@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
  
+/// <summary>
+/// Will copy sprites and pivots from copyFrom texture to copyTo texture. 
+/// </summary>
 public class SpriteCopy : EditorWindow {
  
    Object copyFrom;

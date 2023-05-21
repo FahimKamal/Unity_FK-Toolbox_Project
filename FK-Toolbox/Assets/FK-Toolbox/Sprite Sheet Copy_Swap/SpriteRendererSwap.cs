@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace FK_Toolbox
 {
+    /// <summary>
+    /// Will be attached with a parent object. Will select all child gameObject with SpriteRenderer component.
+    /// Will swap the sprite of the spriteRenderer component of the child gameObject with the sprite from given texture.
+    /// </summary>
     public class SpriteRendererSwap : MonoBehaviour
     {
         [SerializeField] private Texture2D oldTexture;

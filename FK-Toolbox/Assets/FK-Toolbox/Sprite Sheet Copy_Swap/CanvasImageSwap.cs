@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 namespace FK_Toolbox
 {
+    /// <summary>
+    /// Will be attached with a parent object. Will select all child gameObject with Image component.
+    /// Will swap the sprite of the Image component of the child gameObject with the sprite from given texture.
+    /// </summary>
     public class CanvasImageSwap : MonoBehaviour
     {
         [SerializeField] private Texture2D oldTexture;

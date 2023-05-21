@@ -124,11 +124,13 @@ Installation process for this package and all dependencies that are from github 
           ![](https://imgur.com/QWWAEo1.gif "Initialization")
       </details>
 
-  + ### `[Expandable]` Attribute
+  + ### `[ShowOnlyFK]` Attribute
 
-    This Attribute is taken from **NaughtyAttributes** created by Denis Rizov. Visit the git repo
-
-    [here](https://github.com/dbrizov/NaughtyAttributes.git "NaughtyAttributes").
+    This attribute will let you make a serialized filed read only in inspector. 
+    You can see the values but can't edit them in inspector. Can be applied on all serializable fields.  
+    But you will be able to change them through code. This Attribute was created by taking help from 
+    unity forum. Visit the question and answer 
+    [here](https://answers.unity.com/questions/489942/how-to-make-a-readonly-property-in-inspector.html "ShowOnlyFK").
 
     <details>
 
@@ -138,19 +140,20 @@ Installation process for this package and all dependencies that are from github 
 
      </summary>
 
-      + Make scriptable objects expandable.
+      + Add the attribute on your desired serializeField like below.
 
         ```c#
-         public class NaughtyComponent : MonoBehaviour
+         public class DemoClass : MonoBehaviour
          {
-             [Expandable]
-             public ScriptableObject scriptableObject;
+              [SerializeField, ShowOnlyFK] private int intField = 12;
+              [SerializeField, ShowOnlyFK] private string stringField = "You can only see me";
+              [SerializeField, ShowOnlyFK] private List<GameObject> allSpriteRendererObjs = new List<GameObject>();
          }
         ```
 
         You will see something like this in inspector. <br>
 
-        ![](https://imgur.com/OVuBKEK.gif "Expandable_Inspector")
+        ![](https://imgur.com/9OP0mpA.png "Expandable_Inspector")
 
     </details>
 
@@ -490,12 +493,23 @@ Installation process for this package and all dependencies that are from github 
       *To Create a`FloatVariable` object: In `Project` window Right-click and select `Create -> FloatVariable`.</br> 
       </details>
     
+## Sprite Swap ***[Experimental]***
+
+  There are multiple scripts can be found in this section. These scripts will find gameObjects with 
+  spriteRenderer and Image component attached with it and will be able to swap sprites of it with new given
+  sprite. They are specifically written for an internal project. Maybe will use it in future on maybe never. 
+  Help was taken from [this](https://forum.unity.com/threads/copy-spritesheet-slices-and-pivots-solved.301340/) unity forum post. </br>
+  These scripts are not added with package, you can only find them in the main branch.
+
+
 [//]: # (+ ## Haptic Feedback)
 
+[//]: # ()
 [//]: # (  To give haptic feedback or vibration effect in you game you can use this `static` class.)
 
 [//]: # ()
-[//]: # (    <details>)
+[//]: # ()
+[//]: # (  <details>)
 
 [//]: # (        <summary>)
 
@@ -504,29 +518,29 @@ Installation process for this package and all dependencies that are from github 
 [//]: # (        </summary>)
 
 [//]: # ()
-[//]: # (    + Simply use bellow code to give haptic feedback in you code.)
+[//]: # (+ Simply use bellow code to give haptic feedback in you code.)
 
-[//]: # (      ```c#)
+[//]: # (   ```c#)
 
-[//]: # (      Vibrator.Vibrate&#40;HapticEffect.High&#41;;)
+[//]: # (   Vibrator.Vibrate&#40;HapticEffect.High&#41;;)
 
-[//]: # (      // or)
+[//]: # (   // or)
 
-[//]: # (      Vibrator.Vibrate&#40;HapticEffect.Medium&#41;;)
+[//]: # (   Vibrator.Vibrate&#40;HapticEffect.Medium&#41;;)
 
-[//]: # (      // or)
+[//]: # (   // or)
 
-[//]: # (      Vibrator.Vibrate&#40;HapticEffect.Small&#41;;)
+[//]: # (   Vibrator.Vibrate&#40;HapticEffect.Small&#41;;)
 
-[//]: # (      // or)
+[//]: # (   // or)
 
-[//]: # (      Vibrator.Vibrate&#40;HapticEffect.Little&#41;;)
+[//]: # (   Vibrator.Vibrate&#40;HapticEffect.Little&#41;;)
 
-[//]: # (      )
-[//]: # (      // You can also give custom duration in milliseconds)
+[//]: # (   )
+[//]: # (   // You can also give custom duration in milliseconds)
 
-[//]: # (      Vibrator.Vibrate&#40;250&#41;;)
+[//]: # (   Vibrator.Vibrate&#40;250&#41;;)
 
-[//]: # (      ```)
+[//]: # (   ```)
 
-[//]: # (      </details>)
+[//]: # (  </details>)

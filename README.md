@@ -135,9 +135,7 @@ Installation process for this package and all dependencies that are from github 
     <details>
 
      <summary>
-
        <span style="font-size: 17px"> <strong>Usage</strong> </span>
-
      </summary>
 
       + Add the attribute on your desired serializeField like below.

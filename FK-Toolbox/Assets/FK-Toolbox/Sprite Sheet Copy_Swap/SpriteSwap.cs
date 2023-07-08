@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Custom_Attribute;
+using TriInspector;
 using UnityEditor;
 using UnityEngine;
 
@@ -31,7 +32,7 @@ namespace FK_Toolbox
 
         [SerializeField, ShowOnlyFK] private List<TextureContainer> detectedTextures;
 
-        [EasyButtons.Button]
+        [Button]
         void GetSpritesFromOldTexture()
         {
             var textureData = AssetDatabase.LoadAllAssetsAtPath(AssetDatabase.GetAssetPath(oldTexture));
@@ -46,7 +47,7 @@ namespace FK_Toolbox
             
         }
     
-        [EasyButtons.Button]
+        [Button]
         void GetSpritesFromNewTexture()
         {
             var textureData = AssetDatabase.LoadAllAssetsAtPath(AssetDatabase.GetAssetPath(newTexture));
@@ -61,7 +62,7 @@ namespace FK_Toolbox
             
         }
 
-        [EasyButtons.Button]
+        [Button]
         void GetAllGameObjectsInPrefab()
         {
             // Get all gameObjects in the scene and put them in list
@@ -93,7 +94,7 @@ namespace FK_Toolbox
             return ts;
         }
     
-        [EasyButtons.Button]
+        [Button]
         void GetAllTextureAtRefLocation()
         {
             var path = AssetDatabase.GetAssetPath(referenceTexture);
@@ -160,7 +161,7 @@ namespace FK_Toolbox
             }
         }
 
-        [EasyButtons.Button]
+        [Button]
         private void DetectAllTextureUsedInPrefab()
         {
             if (allSpriteRendererObjs.Count  == 0)
@@ -185,7 +186,7 @@ namespace FK_Toolbox
             }
         }
     
-        [EasyButtons.Button]
+        [Button]
         void SwapSprite()
         {
             foreach (var spriteRendererObj in allSpriteRendererObjs)

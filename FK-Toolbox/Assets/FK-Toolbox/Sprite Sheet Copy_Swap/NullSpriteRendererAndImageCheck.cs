@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Custom_Attribute;
+using TriInspector;
 using UnityEngine;
 
 namespace FK_Toolbox
@@ -15,7 +16,7 @@ namespace FK_Toolbox
 
         [SerializeField] private List<GameObject> allGameObjects = new List<GameObject>();
 
-        [EasyButtons.Button]
+        [Button]
         void GetAllGameObjectsInScene()
         {
             // Get all gameObjects in the scene and put them in list
@@ -44,7 +45,7 @@ namespace FK_Toolbox
 
         }
     
-        [EasyButtons.Button]
+        [Button]
         void GetAllGameObjectsInPrefab()
         {
             // Get all gameObjects in the scene and put them in list

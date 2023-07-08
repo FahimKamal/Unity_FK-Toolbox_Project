@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TriInspector;
 using UnityEditor;
 using UnityEngine;
 
@@ -28,7 +29,7 @@ namespace FK_Toolbox
         /// <summary>
         /// Load all sprites from given textures.
         /// </summary>
-        [EasyButtons.Button]
+        [Button]
         private void GetSprites()
         {
             var oldTextureData = AssetDatabase.LoadAllAssetsAtPath(AssetDatabase.GetAssetPath(oldTexture));
@@ -59,7 +60,7 @@ namespace FK_Toolbox
         }
 
 
-        [EasyButtons.Button]
+        [Button]
         private void CompareBothSpriteList()
         {
             if (oldSprites.Count != newSprites.Count)
@@ -105,7 +106,7 @@ namespace FK_Toolbox
             }
         }
 
-        [EasyButtons.Button]
+        [Button]
         void ClearBothSpriteList()
         {
             oldSprites.Clear();
@@ -116,7 +117,7 @@ namespace FK_Toolbox
         }
 
 
-        [EasyButtons.Button]
+        [Button]
         void GetAllGameObjectWithSprite()
         {
             gameObjectsWithSprites.Clear();
@@ -137,7 +138,7 @@ namespace FK_Toolbox
             EditorUtility.SetDirty(this);
         }
 
-        [EasyButtons.Button]
+        [Button]
         void ClearGameObjectList()
         {
             gameObjectsWithSprites.Clear();
@@ -148,7 +149,7 @@ namespace FK_Toolbox
         }
 
 
-        [EasyButtons.Button]
+        [Button]
         void CheckGameObjects()
         {
             if (gameObjectsWithSprites.Count == 0)
@@ -177,7 +178,7 @@ namespace FK_Toolbox
         }
 
 
-        [EasyButtons.Button]
+        [Button]
         void SwapSprites()
         {
             if (!swapPossible || !(gameObjectsWithSprites.Count > 0))

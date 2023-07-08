@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Custom_Attribute;
+using TriInspector;
 using UnityEditor;
 using UnityEngine;
 
@@ -18,7 +19,7 @@ namespace FK_Toolbox
         [SerializeField] private Texture2D referenceTexture;
         [SerializeField, ShowOnlyFK] private List<Texture2D> allTexturesInRefLocation;
         [SerializeField, ShowOnlyFK] private List<SpriteListWithCommonName> spriteListWithCommonNames;
-        [EasyButtons.Button]
+        [Button]
         void GetAllTextureAtRefLocation()
         {
             var path = AssetDatabase.GetAssetPath(referenceTexture);
@@ -66,7 +67,7 @@ namespace FK_Toolbox
         /// <summary>
         /// Check all Textures from list and find textures that has multiple sprites of same name in it.
         /// </summary>
-        [EasyButtons.Button]
+        [Button]
         private void CheckAllTexture()
         {
             if (spriteListWithCommonNames.Count > 0)

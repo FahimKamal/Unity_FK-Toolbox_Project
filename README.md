@@ -9,10 +9,10 @@ currently present in this package.
 This package has below dependencies. You have to install them first.
 
 
-+ **Easy Buttons** by Mads Bang Hoffensetz </br>
++ **Tri-Inspector**</br>
 
    ```http request
-   https://github.com/madsbangh/EasyButtons.git#upm
+   https://github.com/codewriter-packages/Tri-Inspector.git
    ```
 
 + **Serialized Dictionary** by ayellowpaper </br>

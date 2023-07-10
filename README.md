@@ -9,13 +9,13 @@ currently present in this package.
 This package has below dependencies. You have to install them first.
 
 
-+ **Tri-Inspector**</br>
++ **[Tri-Inspector](https://github.com/codewriter-packages/Tri-Inspector.git)**</br>
 
    ```http request
    https://github.com/codewriter-packages/Tri-Inspector.git
    ```
 
-+ **Serialized Dictionary** by ayellowpaper </br>
++ **[Serialized Dictionary](https://assetstore.unity.com/packages/tools/utilities/serialized-dictionary-243052)** by ayellowpaper </br>
 
    ```http request
    https://assetstore.unity.com/packages/tools/utilities/serialized-dictionary-243052

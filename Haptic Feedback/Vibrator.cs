@@ -29,7 +29,9 @@ namespace Haptic
                 vibrator.Call("vibrate", milliseconds);
             else
             {
+                #if UNITY_STANDALONE_WIN
                 Handheld.Vibrate();
+                #endif
             }
         }
     
@@ -40,7 +42,10 @@ namespace Haptic
                 vibrator.Call("vibrate", (long) effect);
             else
             {
+                #if UNITY_STANDALONE_WIN
                 Handheld.Vibrate();
+                #endif
+                
             }
         }
 

@@ -66,7 +66,6 @@ namespace FK_Toolbox
             ti2.spriteImportMode = SpriteImportMode.Multiple;
 
             List<SpriteMetaData> newData = new List<SpriteMetaData>();
-
             Debug.Log("Amount of slices found: " + ti1.spritesheet.Length);
 
             for (int i = 0; i < ti1.spritesheet.Length; i++)

@@ -467,6 +467,10 @@ Installation process for this package and all dependencies that are from github 
     // You can also give custom duration in milliseconds
     Vibrator.Vibrate(250);
     ```
+    Above code dosen't work with latest versions of Unity. Use below repo instead.
+    ```
+    https://github.com/CandyCoded/HapticFeedback
+    ```
     </details>
 
 
